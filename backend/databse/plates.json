@@ -1,0 +1,390 @@
+{
+  "plates": [
+    {
+      "PlateName": "Spaghetti Carbonara",
+      "Category": "Pasta",
+      "Price": 12.99,
+      "Discount": 0,
+      "Image": "https://johan22.sirv.com/ca779719-6931-444a-bb90-c0a5c93b480c",
+      "Description": "Classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper."
+    },
+    {
+      "PlateName": "Chicken Tikka Masala",
+      "Category": "Curry",
+      "Price": 14.99,
+      "Discount": 0.1,
+      "Image": "https://johan22.sirv.com/7e01933d-31ca-4e66-91ff-d939251c2079",
+      "Description": "Creamy and flavorful Indian curry dish made with marinated chicken, tomatoes, and spices."
+    },
+    {
+      "PlateName": "Caesar Salad",
+      "Category": "Salad",
+      "Price": 8.99,
+      "Discount": 0,
+      "Image": "https://johan22.sirv.com/7b3c8e5a-928b-4d28-a8ea-c9a29c1d8a75",
+      "Description": "Classic salad made with romaine lettuce, croutons, Parmesan cheese, and Caesar dressing."
+    },
+    {
+      "PlateName": "Beef Burger",
+      "Category": "Burger",
+      "Price": 9.99,
+      "Discount": 0.15,
+      "Image": "https://johan22.sirv.com/6d8da31c-4115-4a35-89aa-4c9dd198262a",
+      "Description": "Juicy beef patty served on a bun with lettuce, tomato, onion, pickles, and your choice of condiments."
+    },
+    {
+      "PlateName": "Sushi Combo",
+      "Category": "Sushi",
+      "Price": 18.99,
+      "Discount": 0.05,
+      "Image": "https://johan22.sirv.com/5180b9c0-e5cc-4796-a2f6-f2f9cba3b60c",
+      "Description": "Assorted selection of fresh sushi rolls, sashimi, and nigiri served with soy sauce, wasabi, and ginger."
+    },
+    {
+      "PlateName": "Greek Salad",
+      "Category": "Salad",
+      "Price": 9.99,
+      "Discount": 0.1,
+      "Image": "https://johan22.sirv.com/9842f0ff-4d73-4f9f-8e71-f48942ed23fd",
+      "Description": "Fresh and crunchy salad made with cucumbers, tomatoes, feta cheese, olives, and oregano."
+    },
+    {
+      "PlateName": "Veggie Burger",
+      "Category": "Burger",
+      "Price": 11.99,
+      "Discount": 0,
+      "Image": "https://johan22.sirv.com/5762082f-20e5-4af1-8a1d-5a6d3059113a",
+      "Description": "Healthy vegetarian burger made with a patty of mixed vegetables, lettuce, tomato, and your choice of sauce."
+    },
+    {
+      "PlateName": "Cheesecake",
+      "Category": "Dessert",
+      "Price": 7.99,
+      "Discount": 0.05,
+      "Image": "https://johan22.sirv.com/3925570b-4b34-4ab7-a6d4-e264d296e2bf",
+      "Description": "Classic cheesecake with a rich, creamy filling topped with a layer of chocolate ganache."
+    },
+    {
+      "PlateName": "Lamb Kebabs",
+      "Category": "Meat",
+      "Price": 15.99,
+      "Discount": 0.15,
+      "Image": "https://johan22.sirv.com/b82b1021-7663-4995-bd76-8cc4aca62185",
+      "Description": "Grilled lamb kebabs marinated in a blend of spices, served with a side of roasted vegetables."
+    },
+    {
+      "PlateName": "Seafood Paella",
+      "Category": "Seafood",
+      "Price": 16.99,
+      "Discount": 0,
+      "Image": "https://johan22.sirv.com/03ae82ff-a1a4-4b3e-94a1-be2b934a51f8",
+      "Description": "Authentic Spanish paella made with a variety of seafood, including shrimp, mussels, and clams, cooked in a flavorful broth."
+    },
+    {
+      "PlateName": "Vegan Lasagna",
+      "Category": "Pasta",
+      "Price": 13.99,
+      "Discount": 0.05,
+      "Image": "",
+      "Description": "Hearty lasagna made with a base of lentils and vegetables, topped with a creamy tomato sauce and mozzarella cheese."
+    },
+    {
+      "PlateName": "Coke",
+      "Category": "Drinks",
+      "Price": 2.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic cola drink."
+    },
+    {
+      "PlateName": "Pepsi",
+      "Category": "Drinks",
+      "Price": 2.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic cola drink."
+    },
+    {
+      "PlateName": "Water",
+      "Category": "Drinks",
+      "Price": 1.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Bottled water."
+    },
+    {
+      "PlateName": "Hamburger",
+      "Category": "Burger",
+      "Price": 8.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic hamburger with a choice of toppings."
+    },
+    {
+      "PlateName": "Fries",
+      "Category": "Side Dish",
+      "Price": 3.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Crispy fries."
+    },
+    {
+      "PlateName": "Greek Pizza",
+      "Category": "Pizza",
+      "Price": 12.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Pizza topped with feta cheese, olives, and oregano."
+    },
+    {
+      "PlateName": "Chicken Wings",
+      "Category": "Appetizer",
+      "Price": 9.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Crispy chicken wings with a choice of sauces."
+    },
+    {
+      "PlateName": "Margarita",
+      "Category": "Drinks",
+      "Price": 7.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic margarita cocktail."
+    },
+    {
+      "PlateName": "Mojito",
+      "Category": "Drinks",
+      "Price": 8.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Refreshing mojito cocktail."
+    },
+    {
+      "PlateName": "Cosmopolitan",
+      "Category": "Drinks",
+      "Price": 9.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Sophisticated cosmopolitan cocktail."
+    },
+    {
+      "PlateName": "Beer",
+      "Category": "Drinks",
+      "Price": 5.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Cold beer."
+    },
+    {
+      "PlateName": "Wine",
+      "Category": "Drinks",
+      "Price": 10.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Fine wine."
+    },
+    {
+      "PlateName": "Milkshake",
+      "Category": "Drinks",
+      "Price": 6.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Thick and creamy milkshake."
+    },
+    {
+      "PlateName": "Ice Cream",
+      "Category": "Dessert",
+      "Price": 4.99,
+      "Discount": 0
+
+,
+      "Image": "",
+      "Description": "Delicious ice cream."
+    },
+    {
+      "PlateName": "Chocolate Cake",
+      "Category": "Dessert",
+      "Price": 8.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Decadent chocolate cake."
+    },
+    {
+      "PlateName": "Tiramisu",
+      "Category": "Dessert",
+      "Price": 7.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic Italian dessert made with layers of coffee-soaked ladyfingers and mascarpone cheese."
+    },
+    {
+      "PlateName": "Pad Thai",
+      "Category": "Noodles",
+      "Price": 13.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Traditional Thai stir-fried noodles with shrimp, tofu, bean sprouts, and peanuts."
+    },
+    {
+      "PlateName": "Sushi Platter",
+      "Category": "Sushi",
+      "Price": 20.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Assorted selection of fresh sushi rolls, sashimi, and nigiri served with soy sauce, wasabi, and ginger."
+    },
+    {
+      "PlateName": "Chicken Shawarma",
+      "Category": "Middle Eastern",
+      "Price": 11.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Tender and flavorful grilled chicken served with pita bread, hummus, and tahini sauce."
+    },
+    {
+      "PlateName": "Falafel Wrap",
+      "Category": "Middle Eastern",
+      "Price": 9.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Crispy falafel balls wrapped in pita bread with lettuce, tomatoes, and tahini sauce."
+    },
+    {
+      "PlateName": "Beef Tacos",
+      "Category": "Mexican",
+      "Price": 10.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Soft corn tortillas filled with seasoned ground beef, lettuce, cheese, and salsa."
+    },
+    {
+      "PlateName": "Guacamole",
+      "Category": "Mexican",
+      "Price": 6.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Fresh and creamy avocado dip served with tortilla chips."
+    },
+    {
+      "PlateName": "Margarita Pizza",
+      "Category": "Pizza",
+      "Price": 11.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic pizza topped with tomato sauce, fresh mozzarella cheese, basil, and olive oil."
+    },
+    {
+      "PlateName": "Chicken Caesar Salad",
+      "Category": "Salad",
+      "Price": 10.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Classic Caesar salad topped with grilled chicken breast, croutons, Parmesan cheese, and Caesar dressing."
+    },
+    {
+      "PlateName": "Penne Arrabiata",
+      "Category": "Pasta",
+      "Price": 12.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Spicy Italian pasta dish made with penne pasta, tomatoes, garlic, and red chili peppers."
+    },
+    {
+      "PlateName": "Beef Burrito",
+      "Category": "Mexican",
+      "Price": 12.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Large flour tortilla filled with seasoned ground beef, rice, beans, cheese, and salsa."
+    },
+    {
+      "PlateName": "Chicken Kebabs",
+      "Category": "Grill",
+      "Price": 13.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Grilled chicken kebabs marinated in a blend of spices, served with a side of roasted vegetables."
+    },
+    {
+      "PlateName": "Vegetable Stir-Fry",
+      "Category": "Vegetarian",
+      "Price": 11.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Fresh and colorful stir-fried vegetables served with steamed rice."
+    },
+    {
+      "PlateName": "Chicken Noodle Soup",
+      "Category": "Soup",
+      "Price": 8.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Hearty soup made with chicken, vegetables, and noodles in a flavorful broth."
+    },
+    {
+      "PlateName": "Beef Stroganoff",
+      "Category": "Meat",
+      "Price": 14.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Creamy Russian dish made with beef, mushrooms, onions, and sour cream, served over egg noodles."
+    },
+    {
+      "PlateName": "Chicken Parmesan",
+      "Category": "Meat",
+      "Price": 15.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Breaded and fried chicken cutlets topped with marinara sauce and melted mozzarella cheese, served with spaghetti."
+    },
+    {
+      "PlateName": "Shrimp Scampi",
+      "Category": "Seafood",
+      "Price": 16.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Garlic and butter shrimp served over a bed of pasta."
+    },
+    {
+      "PlateName": "Chicken Fajitas",
+      "Category": "Mexican",
+      "Price": 13.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Sizzling chicken fajitas served with tortillas, guacamole, sour cream, and salsa."
+    },
+    {
+      "PlateName": "Beef Pho",
+      "Category": "Noodles",
+      "Price": 14.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Traditional Vietnamese noodle soup made with beef, rice noodles, and aromatic herbs."
+    },
+    {
+      "PlateName": "Chicken Curry",
+      "Category": "Curry",
+      "Price": 12.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Flavorful Indian curry dish made with marinated chicken, tomatoes, and spices."
+    },
+    {
+      "PlateName": "Vegetable Pizza",
+      "Category": "Pizza",
+      "Price": 13.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Pizza topped with a variety of fresh vegetables and cheese."
+    },
+    {
+      "PlateName": "Chicken Alfredo",
+      "Category": "Pasta",
+      "Price": 14.99,
+      "Discount": 0,
+      "Image": "",
+      "Description": "Creamy Italian pasta dish made with chicken, fettuccine, and Alfredo sauce."
+    }
+  ]
+}

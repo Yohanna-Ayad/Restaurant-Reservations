@@ -1,0 +1,34 @@
+const express = require("express");
+// const userServices = require("../services/admin")
+const auth = require("../middleware/auth");
+const multer = require("multer");
+const bodyParser = require('body-parser');
+const router = new express.Router();
+const adminController = require('../controllers/admin')
+
+router.use(bodyParser.urlencoded({ extended: true }));
+//                            Admin
+const uploadPlateImage = multer({
+  limits: {
+    fileSize: 4000000,
+  },
+  fileFilter(req, file, cb) {
+    if (!file.originalname.match(/\.(jpg|png|jpeg)$/)) {
+      return cb(new Error("Please upload an Image file"));
+    }
+    cb(undefined, true);
+  },
+});
+router.post("/admin/Plate",uploadPlateImage.single("Image"),auth ,adminController.addPlate);
+
+//                    ADD Member
+router.post("/admin/members",auth,adminController.addMember);
+
+//                      Delete Member
+router.delete("/admin/members", auth, adminController.deleteMember);
+
+//                     Update Plate
+
+router.patch("/admin/plate",uploadPlateImage.single("Image"),auth,adminController.updatePlate);
+
+module.exports = router;
