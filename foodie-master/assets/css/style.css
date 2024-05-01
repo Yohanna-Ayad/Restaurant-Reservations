@@ -333,8 +333,8 @@ body.active { overflow: hidden; }
 .header-btn-group .btn { display: none; }
 
 .header {
-  --color: var(--white);
-  --btn-color: var(--champagne-pink);
+  --color: var(--ff-shadows-into-light);
+  --btn-color: var(--ff-shadows-into-light);
 
   position: absolute;
   top: 0;
@@ -427,7 +427,7 @@ body.active { overflow: hidden; }
   box-shadow: var(--shadow-1);
   height: 0;
   overflow: hidden;
-  visibility: hidden;
+  visibility: visible;
   transition: var(--transition-1);
 }
 

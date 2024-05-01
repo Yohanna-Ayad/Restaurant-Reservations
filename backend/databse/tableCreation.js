@@ -1,7 +1,6 @@
 const User = require("./user");
 const Permissions = require("./permissions");
 const UserPermission = require("./userPermissions");
-const Rate = require("./rate");
 const Plate = require("./plate");
 const bcrypt = require("bcrypt");
 require("dotenv").config();
@@ -29,8 +28,6 @@ sequelize
         defaults: permission,
       });
     });
-    Plate.hasMany(Rate);
-    Rate.belongsTo(Plate);
 
     const adminUser = {
       name: "Johan",

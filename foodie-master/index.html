@@ -35,17 +35,14 @@
 
 </head>
 
-<body id="top">
+<body id="top" onload="getCategories()">
 
-  <!-- 
-    - #HEADER
-  -->
 
   <header class="header" data-header>
     <div class="container">
 
       <h1>
-        <a href="#" class="logo">Foodie<span class="span">.</span></a>
+        <a href="" class="logo">Foodie<span class="span">.</span></a>
       </h1>
 
       <nav class="navbar" data-navbar>
@@ -54,18 +51,10 @@
           <li class="nav-item">
             <a href="#home" class="navbar-link" data-nav-link>Home</a>
           </li>
-<!-- 
-          <li class="nav-item">
-            <a href="#about" class="navbar-link" data-nav-link>About Us</a>
-          </li> -->
 
           <li class="nav-item">
             <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
           </li>
-
-          <!-- <li class="nav-item">
-            <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
-          </li> -->
 
           <li class="nav-item">
             <a href="#footer" class="navbar-link" data-nav-link>Contact Us</a>
@@ -78,8 +67,6 @@
         <button class="search-btn" aria-label="Search" data-search-btn>
           <ion-icon name="search-outline"></ion-icon>
         </button>
-
-        <!-- <button class="btn btn-hover">Reservation</button> -->
 
         <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
           <span class="line top"></span>
@@ -124,7 +111,7 @@
       <!-- 
         - #HERO
       -->
-
+<!-- 
       <section class="hero" id="home" style="background-image: url('./assets/images/hero-bg.jpg')">
         <div class="container">
 
@@ -136,7 +123,6 @@
 
             <p class="hero-text">Food is any substance consumed to provide nutritional support for an organism.</p>
 
-            <!-- <button class="btn">Book A Table</button> -->
 
           </div>
 
@@ -149,7 +135,7 @@
           </figure>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -159,7 +145,7 @@
         - #PROMO
       -->
 
-      <section class="section section-divider white promo">
+      <!-- <section class="section section-divider white promo">
         <div class="container">
 
           <ul class="promo-list has-scrollbar">
@@ -319,7 +305,7 @@
           </ul>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -409,7 +395,7 @@
             Food is any substance consumed to provide nutritional support for an organism.
           </p>
 
-          <ul class="fiter-list">
+          <ul class="fiter-list" id="fiter-list">
 
             <li>
               <button class="filter-btn  active">All</button>
@@ -433,7 +419,7 @@
 
           </ul>
 
-          <ul class="food-menu-list">
+          <ul class="food-menu-list" id="food-menu-list">
 
             <li>
               <div class="food-menu-card">
@@ -683,7 +669,7 @@
         - #CTA
       -->
 
-      <section class="section section-divider white cta" style="background-image: url('./assets/images/hero-bg.jpg')">
+      <!-- <section class="section section-divider white cta" style="background-image: url('./assets/images/hero-bg.jpg')">
         <div class="container">
 
           <div class="cta-content">
@@ -712,7 +698,7 @@
 
         </div>
       </section>
-
+ -->
 
 
 
@@ -887,7 +873,7 @@
         - #BANNER
       -->
 
-      <section class="section section-divider gray banner">
+      <!-- <section class="section section-divider gray banner">
         <div class="container">
 
           <ul class="banner-list">
@@ -965,7 +951,7 @@
           </ul>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -1307,6 +1293,7 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script src="./assets/js/backend.js"></script>
 
 </body>
 
