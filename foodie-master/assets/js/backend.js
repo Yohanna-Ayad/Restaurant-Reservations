@@ -1,8 +1,5 @@
-const { get } = require("http");
-
-const backendURL = "192.168.1.106:3000"
 const getCategories = async () => {
-  const response = await fetch( `http://${backendURL}/categories`, {
+  const response = await fetch("http://localhost:3000/categories", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +9,7 @@ const getCategories = async () => {
       if (response.ok) {
         return response.json();
       } else {
-        throw new Error("Failed to fetch Categories");
+        throw new Error("Failed to fetch cars");
       }
     })
     .then((data) => {
@@ -21,23 +18,10 @@ const getCategories = async () => {
       categorySelection.innerHTML = "";
       const list1 = document.createElement("li");
       list1.style =
-        "display: flex; flex-wrap: wrap; width:100px justify-content: center; gap: 10px;";
+        "display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-block-end: 40px;";
       const button1 = document.createElement("button");
       button1.style =
-        "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));background-color: var(--deep-saffron);"
-      button1.onclick = function() {
-        
-        const buttons = document.querySelectorAll("button");
-        buttons.forEach((btn) => {
-          btn.style.backgroundColor = "var(--white)";
-          btn.style.color = "var(--color, var(--rich-black-fogra-29))";
-          btn.style.borderColor = "var(--border-color, var(--cultured))";
-        });
-        button1.style.backgroundColor = "var(--deep-saffron)";
-        button1.style.color = "var(--white)";
-        button1.style.borderColor = "var(--deep-saffron)";
-      };
-      
+        "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));background-color: var(--deep-saffron);--color: var(--white);--border-color: var(--deep-saffron);";
       button1.id = "all";
       button1.textContent = "All";
 
@@ -47,21 +31,10 @@ const getCategories = async () => {
       data.forEach((element) => {
         const list = document.createElement("li");
         list.style =
-          "display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;";
+          "display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-block-end: 40px;";
         const button = document.createElement("button");
         button.style =
           "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));";
-        button.onclick = function() {
-          const buttons = document.querySelectorAll("button");
-          buttons.forEach((btn) => {
-            btn.style.backgroundColor = "var(--white)";
-            btn.style.color = "var(--color, var(--rich-black-fogra-29))";
-            btn.style.borderColor = "var(--border-color, var(--cultured))";
-          });
-          button.style.backgroundColor = "var(--deep-saffron)";
-          button.style.color = "var(--white)";
-          button.style.borderColor = "var(--deep-saffron)";
-        };
         button.id = element;
         button.textContent = element;
         console.log(button);
@@ -91,7 +64,7 @@ const getFilteredRestaurants = async (category) => {
     Category: category,
   };
 
-  const response = await fetch(`http://${backendURL}/category`, {
+  const response = await fetch("http://localhost:3000/category", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -136,8 +109,8 @@ const getFilteredRestaurants = async (category) => {
         category.textContent = element.Category;
         const ratingWrapper = document.createElement("div");
         ratingWrapper.className = "rating-wrapper";
-        // const rating = document.createElement("ion-icon");
-        // rating.name = "star";
+        const rating = document.createElement("ion-icon");
+        rating.name = "star";
         const h3 = document.createElement("h3");
         h3.className = "h3 card-title";
         h3.textContent = element.PlateName;
@@ -159,11 +132,11 @@ const getFilteredRestaurants = async (category) => {
         cardBanner.appendChild(badge);
         cardBanner.appendChild(button);
         wrapper.appendChild(category);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
         wrapper.appendChild(ratingWrapper);
         card.appendChild(cardBanner);
         card.appendChild(wrapper);
@@ -187,7 +160,7 @@ const getPlates = async () => {
     limit: 10,
   };
 
-  const response = await fetch(`http://${backendURL}/plates`, {
+  const response = await fetch("http://localhost:3000/plates", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -232,8 +205,8 @@ const getPlates = async () => {
         category.textContent = element.Category;
         const ratingWrapper = document.createElement("div");
         ratingWrapper.className = "rating-wrapper";
-        // const rating = document.createElement("ion-icon");
-        // rating.name = "star";
+        const rating = document.createElement("ion-icon");
+        rating.name = "star";
         const h3 = document.createElement("h3");
         h3.className = "h3 card-title";
         h3.textContent = element.PlateName;
@@ -255,11 +228,11 @@ const getPlates = async () => {
         cardBanner.appendChild(badge);
         cardBanner.appendChild(button);
         wrapper.appendChild(category);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
-        // ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
+        ratingWrapper.appendChild(rating);
         wrapper.appendChild(ratingWrapper);
         card.appendChild(cardBanner);
         card.appendChild(wrapper);

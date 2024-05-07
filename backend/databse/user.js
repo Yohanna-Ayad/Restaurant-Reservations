@@ -16,9 +16,7 @@ const User = sequelize.define(
       allowNull: false,
       trim: true,
       defaultValue: "user",
-      validate: {
-        isIn: ["user", "admin"],
-      },
+      values: ["user", "admin"]
     },
     email: {
       type: DataTypes.STRING,

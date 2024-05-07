@@ -40,10 +40,9 @@
 
   <header class="header" data-header>
     <div class="container">
-
-      <h1>
-        <a href="" class="logo">Foodie<span class="span">.</span></a>
-      </h1>
+      <div class="header-container">
+          <a href="" class="logo">Foodie<span class="span">.</span></a>
+    
 
       <nav class="navbar" data-navbar>
         <ul class="navbar-list">
@@ -53,16 +52,14 @@
           </li>
 
           <li class="nav-item">
-            <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
+            <a href="#food-menu" class="navbar-link" data-nav-link>Menu</a>
           </li>
 
           <li class="nav-item">
             <a href="#footer" class="navbar-link" data-nav-link>Contact Us</a>
           </li>
-
         </ul>
       </nav>
-
       <div class="header-btn-group">
         <button class="search-btn" aria-label="Search" data-search-btn>
           <ion-icon name="search-outline"></ion-icon>
@@ -73,10 +70,15 @@
           <span class="line middle"></span>
           <span class="line bottom"></span>
         </button>
+      
+      <a class="cart-link header-link" href="checkout.html">
+          <ion-icon class="cart-icon" name="cart-outline"></ion-icon>
+          <div class="cart-quantity js-cart-quantity">0</div>
+        </a>
       </div>
-
-    </div>
-  </header>
+    </div> 
+  </div>
+</header>
 
 
 
@@ -100,6 +102,7 @@
     <button class="search-close-btn" aria-label="Cancel search" data-search-close-btn></button>
 
   </div>
+ 
 
 
 
@@ -422,15 +425,23 @@
           <ul class="food-menu-list" id="food-menu-list">
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card product-container">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-1.png" width="300" height="300" loading="lazy"
                     alt="Fried Chicken Unlimited" class="w-100">
 
                   <div class="badge">-15%</div>
-
-                  <button class="btn food-menu-btn">Order Now</button>
+                  
+                  <div class="product-quantity-container">
+                    <div class="quantity-control">
+                        <button class="decrease-btn">-</button>
+                        <input type="text" class="quantity-input" value="0">
+                        <button class="increase-btn">+</button>
+                        <button class="btn food-menu-btn add-to-cart-button button-primary js-add-to-cart" data-product-name="Fried Chicken Unlimited">Add To Cart</button>
+                        
+                   </div>
+                </div>
                 </div>
 
                 <div class="wrapper">
@@ -445,7 +456,7 @@
                   </div>
                 </div>
 
-                <h3 class="h3 card-title">Fried Chicken Unlimited</h3>
+                <h3 class="h3 card-title product-namelimit-text-to-2-lines">Fried Chicken Unlimited</h3>
 
                 <div class="price-wrapper">
 
@@ -454,14 +465,28 @@
                   <data class="price">$49.00</data>
 
                   <del class="del" value="69.00">$69.00</del>
-
+                 
                 </div>
+               
+
+                <div class="product-spacer"></div>
+    
+                <!-- <div class="added-to-cart">
+                    <img src="images/icons/checkmark.png">
+                    Added
+                </div> -->
+    
+                <!-- <button class="add-to-cart-button button-primary js-add-to-cart "data-product-name="Onion-Tomato-Capsicum-Pizza">
+                  Add to Cart
+              </button> -->
+
+              
 
               </div>
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card product-container">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-2.png" width="300" height="300" loading="lazy"
@@ -469,8 +494,15 @@
 
                   <div class="badge">-10%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
-                </div>
+                  <div class="product-quantity-container">
+                    <div class="quantity-control">
+                        <button class="decrease-btn">-</button>
+                        <input type="text" class="quantity-input" value="0">
+                        <button class="increase-btn">+</button>
+                        <button class="btn food-menu-btn add-to-cart-button button-primary js-add-to-cart" data-product-name="Burger King Whopper">Add To Cart</button>
+                   </div>
+                </div>                
+              </div>
 
                 <div class="wrapper">
                   <p class="category">Noddles</p>
@@ -484,7 +516,7 @@
                   </div>
                 </div>
 
-                <h3 class="h3 card-title">Burger King Whopper</h3>
+                <h3 class="h3 card-title product-namelimit-text-to-2-lines">Burger King Whopper</h3>
 
                 <div class="price-wrapper">
 
@@ -500,7 +532,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card product-container">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-3.png" width="300" height="300" loading="lazy"
@@ -508,7 +540,15 @@
 
                   <div class="badge">-25%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+
+                  <div class="product-quantity-container">
+                    <div class="quantity-control">
+                        <button class="decrease-btn">-</button>
+                        <input type="text" class="quantity-input" value="0">
+                        <button class="increase-btn">+</button>
+                        <button class="btn food-menu-btn add-to-cart-button button-primary js-add-to-cart" data-product-name="White Castle Pizzas">Add To Cart</button>
+                   </div>
+                  </div> 
                 </div>
 
                 <div class="wrapper">
@@ -523,7 +563,7 @@
                   </div>
                 </div>
 
-                <h3 class="h3 card-title">White Castle Pizzas</h3>
+                <h3 class="h3 card-title product-namelimit-text-to-2-lines">White Castle Pizzas</h3>
 
                 <div class="price-wrapper">
 
@@ -539,7 +579,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card product-container">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-4.png" width="300" height="300" loading="lazy"
@@ -547,8 +587,16 @@
 
                   <div class="badge">-20%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
-                </div>
+
+                  <div class="product-quantity-container">
+                    <div class="quantity-control">
+                        <button class="decrease-btn">-</button>
+                        <input type="text" class="quantity-input" value="0">
+                        <button class="increase-btn">+</button>
+                        <button class="btn food-menu-btn add-to-cart-button button-primary js-add-to-cart" data-product-name="Bell Burrito Supreme">Add To Cart</button>
+                   </div>
+                </div>                 
+              </div>
 
                 <div class="wrapper">
                   <p class="category">Burrito</p>
@@ -562,7 +610,7 @@
                   </div>
                 </div>
 
-                <h3 class="h3 card-title">Bell Burrito Supreme</h3>
+                <h3 class="h3 card-title product-namelimit-text-to-2-lines">Bell Burrito Supreme</h3>
 
                 <div class="price-wrapper">
 
@@ -578,7 +626,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card product-container">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-5.png" width="300" height="300" loading="lazy"
@@ -586,8 +634,16 @@
 
                   <div class="badge">-5%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
-                </div>
+
+                  <div class="product-quantity-container">
+                    <div class="quantity-control">
+                        <button class="decrease-btn">-</button>
+                        <input type="text" class="quantity-input" value="0">
+                        <button class="increase-btn">+</button>
+                        <button class="btn food-menu-btn add-to-cart-button button-primary js-add-to-cart" data-product-name="Kung Pao Chicken BBQ">Add To Cart</button>
+                   </div>
+                </div>                 
+              </div>
 
                 <div class="wrapper">
                   <p class="category">Nuggets</p>
@@ -601,7 +657,7 @@
                   </div>
                 </div>
 
-                <h3 class="h3 card-title">Kung Pao Chicken BBQ</h3>
+                <h3 class="h3 card-title product-namelimit-text-to-2-lines">Kung Pao Chicken BBQ</h3>
 
                 <div class="price-wrapper">
 
@@ -617,7 +673,7 @@
             </li>
 
             <li>
-              <div class="food-menu-card">
+              <div class="food-menu-card  product-container">
 
                 <div class="card-banner">
                   <img src="./assets/images/food-menu-6.png" width="300" height="300" loading="lazy"
@@ -625,8 +681,16 @@
 
                   <div class="badge">-15%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
-                </div>
+
+                  <div class="product-quantity-container">
+                    <div class="quantity-control">
+                        <button class="decrease-btn">-</button>
+                        <input type="text" class="quantity-input" value="0">
+                        <button class="increase-btn">+</button>
+                        <button class="btn food-menu-btn add-to-cart-button button-primary js-add-to-cart"data-product-name="Wendy's Chicken">Add To Cart</button>
+                   </div>
+                </div>                 
+              </div>
 
                 <div class="wrapper">
                   <p class="category">Chicken</p>
@@ -640,7 +704,7 @@
                   </div>
                 </div>
 
-                <h3 class="h3 card-title">Wendy's Chicken</h3>
+                <h3 class="h3 card-title product-namelimit-text-to-2-lines">Wendy's Chicken</h3>
 
                 <div class="price-wrapper">
 
@@ -1286,7 +1350,10 @@
   <!-- 
     - custom js link
   -->
+  
   <script src="./assets/js/script.js" defer></script>
+
+
 
   <!-- 
     - ionicon link
