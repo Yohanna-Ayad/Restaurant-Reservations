@@ -20,6 +20,62 @@ function removeFromCart(productName) {
     saveToStorage();
 }
 
+function mergeCarts() { 
+  let cartCopy = JSON.parse(localStorage.getItem("cart"));
+  if (!cartCopy) {
+    cartCopy = [];
+  }
+  cartCopy.forEach((cartItem) => {
+    let matchingItem;
+    cart.forEach((item) => {
+      if (cartItem.PlateName === item.PlateName) {
+        console.log("match")
+        matchingItem = item;
+      }
+      console.log("no match")
+    });
+    if (matchingItem) {
+      matchingItem.quantity += cartItem.quantity;
+    } else {
+      cart.push(cartItem);
+    }
+  });
+}
+
+mergeCarts();
+function visualizeCart() {
+  let cartHTML = "";
+  cart.forEach((cartItem) => {
+    cartHTML += `
+        <div class="cart-item">
+          <div class="cart-item-details">
+            <div class="product-name">${cartItem.PlateName}</div>
+            <div class="product-quantity">Price: ${cartItem.quantity}</div>
+          </div>
+          <button class="delete-btn js-delete-link" data-product-name="${cartItem.productName}">Delete</button>
+        </div>
+      `;
+  });
+  document.querySelector(".js-cart").innerHTML = cartHTML;
+  document.querySelectorAll(".js-delete-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      const productName = link.dataset.productName;
+      removeFromCart(productName);
+      visualizeCart();
+      updateBill();
+    });
+  });
+}
+
+
+
+
+
+
+
+
+
+
 let products = [
   {
     image: "./assets/images/food-menu-1.png",
