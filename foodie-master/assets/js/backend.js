@@ -1,4 +1,4 @@
-const backendURL = "192.168.1.106:3000"
+const backendURL = "http://localhost:3000"
 const getCategories = async () => {
   const response = await fetch( `http://${backendURL}/categories`, {
     method: "GET",
@@ -24,12 +24,13 @@ const getCategories = async () => {
       button1.style =
         "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));background-color: var(--deep-saffron);"
       button1.onclick = function() {
-        
+        getPlates()
         const buttons = document.querySelectorAll("button");
         buttons.forEach((btn) => {
           btn.style.backgroundColor = "var(--white)";
           btn.style.color = "var(--color, var(--rich-black-fogra-29))";
           btn.style.borderColor = "var(--border-color, var(--cultured))";
+
         });
         button1.style.backgroundColor = "var(--deep-saffron)";
         button1.style.color = "var(--white)";
