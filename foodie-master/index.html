@@ -63,7 +63,7 @@
         </ul>
       </nav>
 
-      <div class="header-btn-group">
+      <!-- <div class="header-btn-group">
         <button class="search-btn" aria-label="Search" data-search-btn>
           <ion-icon name="search-outline"></ion-icon>
         </button>
@@ -73,7 +73,7 @@
           <span class="line middle"></span>
           <span class="line bottom"></span>
         </button>
-      </div>
+      </div> -->
 
       <a class="cart-link header-link" href="checkout.html">
         <ion-icon class="cart-icon" name="cart-outline"></ion-icon>
@@ -83,14 +83,88 @@
   </header>
 
 
+  <div id="cart" class="max-sm:w-full bg-[#f1f1f1] sm:w-80 p-2 sm:float-right fixed top-0 right-0 h-full shadow-lg z-20 transition-transform transform">
+    <i class="fas fa-times flex float-right my-2 text-xl hover:text-orange-700 cursor-pointer max-sm:text-2xl max-sm:mr-5 max-sm:mt-2" id="close-btn"></i>
+    <h1 class="text-center max-sm:my-10 max-sm:mb-4">Cart</h1>
+    <div class="flex flex-col overflow-y-auto h-3/4 max-sm:mx-5" id="cart-items"></div>
+    <div class="flex justify-between mx-5">
+        <button class="p-2 text-white bg-black text-center hover:text-black hover:bg-white rounded-lg">Go to Cart</button>
+        <button class="p-2 text-white bg-black text-center hover:text-black hover:bg-orange-700 rounded-lg">Proceed to Checkout</button>
+    </div>
+    <h2 class="text-center mt-4" id="total-amount">Total: 0 EGP</h2>
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        // JavaScript for managing the cart
+        const cart = [
+            { name: 'Item 1', price: 100, img: 'https://via.placeholder.com/150' },
+            { name: 'Item 2', price: 200, img: 'https://via.placeholder.com/150' }
+        ];
+        let total = cart.reduce((sum, item) => sum + item.price, 0);
+        let setToggleDisplay = true;
+
+        document.getElementById('total-amount').innerText = `Total: ${total} EGP`;
+
+        const cartItemsContainer = document.getElementById('cart-items');
+
+        function renderCartItems() {
+            cartItemsContainer.innerHTML = '';
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'mb-2 border-b pb-2';
+
+                itemDiv.innerHTML = `
+                    <div class="flex">
+                        <img src="${item.img}" alt="${item.name}" class="w-24 h-24 max-sm:w-20 max-sm:h-20">
+                        <div class="ml-2 flex-1 max-sm:-my-6">
+                            <h4>${item.name}</h4>
+                            <p>${item.price} EGP</p>
+                        </div>
+                        <div>
+                            <button onclick="increaseQuantity(${index})">+</button>
+                            <button onclick="decreaseQuantity(${index})">-</button>
+                        </div>
+                    </div>
+                `;
+
+                cartItemsContainer.appendChild(itemDiv);
+            });
+        }
+
+        function increaseQuantity(index) {
+            cart[index].price += 100;
+            updateCart();
+        }
+
+        function decreaseQuantity(index) {
+            if (cart[index].price > 100) {
+                cart[index].price -= 100;
+                updateCart();
+            }
+        }
+
+        function updateCart() {
+            total = cart.reduce((sum, item) => sum + item.price, 0);
+            document.getElementById('total-amount').innerText = `Total: ${total} EGP`;
+            renderCartItems();
+        }
+
+        document.getElementById('close-btn').addEventListener('click', () => {
+            setToggleDisplay = !setToggleDisplay;
+            document.getElementById('cart').classList.toggle('translate-x-full', !setToggleDisplay);
+        });
+
+        // Initial render
+        renderCartItems();
+    </script>
 
 
   <!-- 
     - #SEARCH BOX
   -->
 
-  <div class="search-container" data-search-container>
+  <!-- <div class="search-container" data-search-container>
 
     <div class="search-box">
       <input type="search" name="search" aria-label="Search here" placeholder="Type keywords here..."
@@ -103,7 +177,7 @@
 
     <button class="search-close-btn" aria-label="Cancel search" data-search-close-btn></button>
 
-  </div>
+  </div> -->
 
 
 
