@@ -1,0 +1,190 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Ruda:wght@400;600;700&display=swap"); */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+  
+.login-container {
+  color: var(--black);
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+  overflow: hidden;
+  position: relative;
+}
+.login-container p {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+}
+.login-container span {
+  font-size: 12px;
+}
+.login-container a {
+  text-decoration: none;
+  color: #333;
+  margin: 15px 0 10px;
+  font-size: 13px;
+}
+.login-container form {
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+.login-container form input {
+  background-color: #eee;
+  border: none;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px 15px;
+  font-size: 13px;
+  outline: none;
+  width: 100%;
+  border-radius: 8px;
+  font-family: inherit;
+}
+.login-container button {
+    background-color:  var(--deep-saffron);
+    color: var(--white);
+    padding: 10px 20px ;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+.login-container button.hidden {
+  background-color: transparent;
+  border-color: var(--white);
+}
+.form-container {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+.social_icons {
+  margin: 20px 0;
+}
+.social_icons a {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 3px;
+  width: 40px;
+  height: 40px;
+}
+.sign-in {
+  left: 0;
+  width: 50%;
+  z-index: 2;
+}
+.login-container.active .sign-in {
+  transform: translateX(100%);
+}
+.sign-up {
+  left: 0;
+  width: 50%;
+  z-index: 1;
+  opacity: 0;
+}
+.login-container.active .sign-up {
+  transform: translateX(100%);
+  opacity: 1;
+  z-index: 5;
+  animation: move 0.6;
+}
+@keyframes move {
+  0%,
+  49.99% {
+    opacity: 0;
+    z-index: 1;
+  }
+  50%,
+  100% {
+    opacity: 1;
+    z-index: 5;
+  }
+}
+.toggle-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.6s ease-in-out;
+  z-index: 100;
+}
+.login-container.active .toggle-container {
+  transform: translateX(-100%);
+}
+.toggle {
+  background: url("../images/hero-banner.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  color: var(--white);
+  left: -100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+  position: relative;
+}
+.toggle::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.login-container.active .toggle {
+  transform: translateX(50%);
+}
+.toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px;
+  top: 0;
+  transform: translateX(0);
+  transition: all 0.6s ease-in-out;
+}
+.toggle-left {
+  transform: translateX(-200%);
+}
+.login-container.active .toggle-left {
+  transform: translateX(0);
+}
+.toggle-right {
+  right: 0;
+  transform: translateX(0);
+}
+.login-container.active .toggle-right {
+  transform: translateX(0);
+}
+
+

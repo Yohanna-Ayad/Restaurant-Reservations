@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <script defer src="assets/js/login.js"></script>
+   
+    <title>Add Meal Page</title>
+  </head>
+   
+<body id="top" onload="getCategories()">
+
+
+    <header class="header" data-header>
+      <div class="container">
+          <div class="header-container">
+            <a href="adminpage.html" class="logo">Foodie<span class="span">.</span></a>
+            <nav class="navbar" data-navbar>
+                  <ul class="navbar-list">
+  
+                  <!-- <li class="nav-item">
+                      <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                  </li> -->
+  
+                  <!-- <li class="nav-item">
+                      <a href="#order-list" class="navbar-link" data-nav-link>OrderList</a>
+                  </li> -->
+                  </ul>
+              </nav>
+               <div class="header-btn-group">
+                  <!-- <button class="search-btn" aria-label="Search" data-search-btn>
+                    <ion-icon name="search-outline"></ion-icon>
+                  </button> -->
+                  <!-- <button class="search-btn">
+                    <a href="userinfo.html"><ion-icon name="person-outline"></ion-icon></a>
+                  </button> -->
+                  <button class="btn" >
+                    <a href="mealsMang.html">Back</a>
+                  </button>
+            
+                    <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+                      <span class="line top"></span>
+                      <span class="line middle"></span>
+                      <span class="line bottom"></span>
+                    </button>
+              </div> 
+          </div>
+       </div>
+  </header>
+      
+       <div class="login-container" id="container">
+
+            <div class="form-container sign-in">
+                <form>
+                    <h1>Add New meal</h1>
+                  
+                    <input type="text" placeholder="PlateName" />
+                    <input type="text" placeholder="Category" />
+                    <input type="text" placeholder="Price" />
+                    <input type="text" placeholder="Description" />
+                    <button type="button">save</button>
+                </form>
+            </div>
+            <div class="toggle-container">
+                <div class="toggle">
+                    <!-- <div class="toggle-panel toggle-left">
+                        <h1>Welcome Back!</h1>
+                        <p>Enter Your Personal Details to use All of site Features!</p>
+                        <button class="hidden" id="login">Sign In</button>
+                    </div> -->
+                    <!-- <div class="toggle-panel toggle-right">
+                        <h1>Welcome Back!</h1>
+                        <p>
+                            Enter Your Personal Details to use All of site Features!
+                        </p>
+                        <button class="hidden" id="register">Sign Up</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
