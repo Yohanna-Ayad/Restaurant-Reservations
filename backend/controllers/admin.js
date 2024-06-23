@@ -4,13 +4,13 @@ const adminController = {
   // Function to add news to the database         Done
   addPlate: async (req, res) => {
     try {
-      if (!req.user.permissions.includes(3)) {
-        console.error("You do not have permission to perform this action!");
-        return res.status(403).send({
-          error: "You do not have permission to perform this action!",
-        });
-      }
-      console.log("User have permission to add new Plate");
+      // if (!req.user.permissions.includes(3)) {
+      //   console.error("You do not have permission to perform this action!");
+      //   return res.status(403).send({
+      //     error: "You do not have permission to perform this action!",
+      //   });
+      // }
+      // console.log("User have permission to add new Plate");
       payload = {
         PlateName: req.body.PlateName,
         Category: req.body.Category,
@@ -45,13 +45,13 @@ const adminController = {
   // Function to update plate in the database       Done
   updatePlate: async (req, res) => {
     try {
-      if (!req.user.permissions.includes(3)) {
-        console.error("You do not have permission to perform this action!");
-        return res.status(403).send({
-          error: "You do not have permission to perform this action!",
-        });
-      }
-      console.log("User have permission to update Plate");
+      // if (!req.user.permissions.includes(3)) {
+      //   console.error("You do not have permission to perform this action!");
+      //   return res.status(403).send({
+      //     error: "You do not have permission to perform this action!",
+      //   });
+      // }
+      // console.log("User have permission to update Plate");
       const plateName = req.body.PlateName;
       payload = {
         Category: req.body.Category,
@@ -84,21 +84,22 @@ const adminController = {
   },
   // Function to add member to the database       Done
   addMember: async (req, res) => {
-    if (!req.user.permissions.includes(2)) {
-      console.error("You do not have permission to perform this action!");
-      return res.status(403).send({
-        error: "You do not have permission to perform this action!",
-      });
-    }
-    console.log("User have permission to add member");
+    // if (!req.user.permissions.includes(2)) {
+    //   console.error("You do not have permission to perform this action!");
+    //   return res.status(403).send({
+    //     error: "You do not have permission to perform this action!",
+    //   });
+    // }
+    // console.log("User have permission to add member");
     try {
       const payload = {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password,
         role: req.body.role,
-        permission: req.body.permissions,
+        // permission: req.body.permissions,
       };
+      // console.log(payload)
 
       const result = await adminService.addMember(payload);
 
@@ -106,7 +107,7 @@ const adminController = {
         result === "All fields are required!" ||
         result === "Password must be at least 8 characters!" ||
         result === "Failed to create user!" ||
-        result === "Permission is required!" ||
+        // result === "Permission is required!" ||
         result === "Role does not exist!"
       ) {
         // throw new ValidationError(result);
@@ -119,9 +120,7 @@ const adminController = {
           error: result,
         });
       }
-      return res
-        .status(201)
-        .send({ message: "User Created successful!", user: result });
+      return res.status(201).send({ message: "User Created successful!", user: result });
     } catch (error) {
       console.error(error);
       return res.status(400).send({ error: error.message });
@@ -135,27 +134,28 @@ const adminController = {
         error: "You do not have permission to perform this action!",
       });
     }
-    if (!req.user.permissions.includes(2)) {
-      console.error("You do not have permission to perform this action!");
-      return res.status(403).send({
-        error: "You do not have permission to perform this action!",
-      });
-    }
-    console.log("User have permission to delete member");
-    if (!req.body.email) {
-      console.error("Email is required!");
-      return res.status(400).send({
-        error: "Email is required!",
-      });
-    }
-    if (req.body.email === req.user.email) {
-      console.error("You cannot delete yourself!");
-      return res.status(403).send({
-        error: "You cannot delete yourself!",
-      });
-    }
+    // if (!req.user.permissions.includes(2)) {
+    //   console.error("You do not have permission to perform this action!");
+    //   return res.status(403).send({
+    //     error: "You do not have permission to perform this action!",
+    //   });
+    // }
+    // console.log("User have permission to delete member");
+    // if (!req.body.email) {
+    //   console.error("Email is required!");
+    //   return res.status(400).send({
+    //     error: "Email is required!",
+    //   });
+    // }
+    // if (req.body.email === req.user.email) {
+    //   console.error("You cannot delete yourself!");
+    //   return res.status(403).send({
+    //     error: "You cannot delete yourself!",
+    //   });
+    // }
     try {
-      const result = await adminService.deleteMember(req.body.email);
+      // console.log(req.params.id)
+      const result = await adminService.deleteMember(req.params.id);
       if (result === "User not found") {
         return res.status(404).send({
           error: result,
@@ -181,6 +181,17 @@ const adminController = {
     res.send({"message":"Avatar uploaded", user: user});
   }
   },
+  getAllMembers: async (req, res) => {
+    try {
+      const members = await adminService.getAllMembers();
+      if (!members) {
+        return res.status(404).send({ error: "No member found" });
+      }
+      res.status(200).send({message: "Members found", members});
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  }
 };
 
 module.exports = adminController;

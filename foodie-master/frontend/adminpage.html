@@ -36,126 +36,61 @@
   <link rel="preload" as="image" href="./assets/images/hero-banner.png" media="min-width(768px)">
   <link rel="preload" as="image" href="./assets/images/hero-banner-bg.png" media="min-width(768px)">
   <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
- 
+
 </head>
 
 <body id="top" onload="getCategories()">
+<script src="./assets/js/admin.js"></script>
 
+  <header class="header" data-header>
+    <div class="container">
+      <div class="header-container">
+        <a href="userpage.html" class="logo">Foodie<span class="span">.</span></a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="nav-item">
+              <a href="" class="navbar-link" data-nav-link>Orders History</a>
+            </li>
 
-    <header class="header" data-header>
-      <div class="container">
-          <div class="header-container">
-            <a href="userpage.html" class="logo">Foodie<span class="span">.</span></a>
-            <nav class="navbar" data-navbar>
-                  <ul class="navbar-list">
-                    <li class="nav-item">
-                        <a href="#food-menu" class="navbar-link" data-nav-link>Orders History</a>
-                    </li>
+            <li class="nav-item">
+              <a href="userMang.html" class="navbar-link" data-nav-link>UsersMangement</a>
+            </li>
 
-                    <li class="nav-item">
-                      <a href="userMang.html" class="navbar-link" data-nav-link>UsersMangement</a>
-                  </li>
+            <li class="nav-item">
+              <a href="mealsMang.html" class="navbar-link" data-nav-link>MealsMangement</a>
+            </li>
 
-                  <li class="nav-item">
-                    <a href="mealsMang.html" class="navbar-link" data-nav-link>MealsMangement</a>
-                </li>
+          </ul>
+        </nav>
 
-                  </ul>
-              </nav>
-               <div class="header-btn-group">
-                  <!-- <button class="search-btn" aria-label="Search" data-search-btn>
-                    <ion-icon name="search-outline"></ion-icon>
-                  </button> -->
-                  <!-- <button class="search-btn">
-                    <a href="userinfo.html"><ion-icon name="person-outline"></ion-icon></a>
-                  </button>
-                  <button class="btn" >
-                    <a href="index.html">Logout</a>
-                  </button> -->
-            
-                    <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
-                      <span class="line top"></span>
-                      <span class="line middle"></span>
-                      <span class="line bottom"></span>
-                    </button>
-              </div> 
-          </div>
-       </div>
-  </header>
+        <div class="header-btn-group">
 
-
-
-
-
-  <!-- 
-    - #SEARCH BOX
-  -->
-
-  <!-- <div class="search-container" data-search-container>
-
-    <div class="search-box">
-      <input type="search" name="search" aria-label="Search here" placeholder="Type keywords here..."
-        class="search-input">
-
-      <button class="search-submit" aria-label="Submit search" data-search-submit-btn>
-        <ion-icon name="search-outline"></ion-icon>
-      </button>
+          <button class="login-btn" onclick="logoutAPI()" >
+            <a href="index.html">Logout</a>
+          </button>
+          <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </button>
+        </div>
+      </div>
     </div>
-
-    <button class="search-close-btn" aria-label="Cancel search" data-search-close-btn></button>
-
-  </div> -->
-
-
-
-
-
+  </header>
   <main>
     <article>
-
-
-
-
-   <!-- 
-        - #orders-History
-      -->
-
       <section class="section order-list" id="order-list">
         <div class="container">
 
-           <p class="section-subtitle"></p>
+          <p class="section-subtitle"></p>
 
           <h2 class="h2 section-title">
             Orders <span class="span">History</span>
           </h2>
 
           <p class="section-text">
-            
-          </p> 
 
-          <!-- <ul class="fiter-list" id="fiter-list">
-
-            <li>
-              <button class="filter-btn  active">All</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Pizza</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Burger</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Drinks</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Sandwich</button>
-            </li>
-
-          </ul> -->
+          </p>
 
           <ul class="food-menu-list" id="food-menu-list">
 
@@ -163,22 +98,7 @@
               <div class="food-menu-card">
                 <p class="order-number-text">Order# <span class="order-number"></span></p>
                 <div class="cart-item">
-                      <img src="./assets/images/food-menu-1.png" class="product-image">
-                      <div class="cart-item-details">
-                        <h4 class="card-title">Fried Chicken </h4>
-                        <div class="price-text">$50.00</div>
-                        <div class="product-quantity">
-                          <span>
-                            Qty: <span class="quantity-label"></span>
-                          </span>
-                        
-                        </div>
-                      
-                      </div>
-                </div>
-               
-                  <!-- <div class="cart-item">
-                  <img src="./assets/images/food-menu-4.png" class="product-image">
+                  <img src="./assets/images/food-menu-1.png" class="product-image">
                   <div class="cart-item-details">
                     <h4 class="card-title">Fried Chicken </h4>
                     <div class="price-text">$50.00</div>
@@ -188,123 +108,92 @@
                       </span>
 
                     </div>
-                  </div>
-                  </div> -->
-                
-                  <div class="order-line"></div> 
-                  <div class="order-summary">
-                    <div class="order-details">
-                      <p class="order-items-number">2 items</p>
-                      <p class="order-total-price">Total Price: $100.00</p>
-                    </div>
-                    <div class="order-status">
-                        <p class="order-status-complete">Completed</p>
-                        <!-- <p class="order-status-cancle" >Canceled</p> -->
-                      </div>
-                  </div>
-                
-                  
-              </div>  
-             
-            </li>
-          
-            <li>
-                <div class="food-menu-card">
-                  <p class="order-number-text">Order# <span class="order-number"></span></p>
-                  <div class="cart-item">
-                        <img src="./assets/images/food-menu-1.png" class="product-image">
-                        <div class="cart-item-details">
-                          <h4 class="card-title">Fried Chicken </h4>
-                          <div class="price-text">$50.00</div>
-                          <div class="product-quantity">
-                            <span>
-                              Qty: <span class="quantity-label"></span>
-                            </span>
-                          
-                          </div>
-                        
-                        </div>
-                  </div>
-                 
-                    <!-- <div class="cart-item">
-                    <img src="./assets/images/food-menu-4.png" class="product-image">
-                    <div class="cart-item-details">
-                      <h4 class="card-title">Fried Chicken </h4>
-                      <div class="price-text">$50.00</div>
-                      <div class="product-quantity">
-                        <span>
-                          Qty: <span class="quantity-label"></span>
-                        </span>
-  
-                      </div>
-                    </div>
-                    </div> -->
-                  
-                    <div class="order-line"></div> 
-                    <div class="order-summary">
-                      <div class="order-details">
-                        <p class="order-items-number">2 items</p>
-                        <p class="order-total-price">Total Price: $100.00</p>
-                      </div>
-                      <div class="order-status">
-                          <!-- <p class="order-status-complete">Completed</p> -->
-                          <p class="order-status-cancle" >Canceled</p>
-                        </div>
-                    </div>
-                  
-                    
-                </div>  
-               
-              </li>
 
-              <li>
-                <div class="food-menu-card">
-                  <p class="order-number-text">Order# <span class="order-number"></span></p>
-                  <div class="cart-item">
-                        <img src="./assets/images/food-menu-1.png" class="product-image">
-                        <div class="cart-item-details">
-                          <h4 class="card-title">Fried Chicken </h4>
-                          <div class="price-text">$50.00</div>
-                          <div class="product-quantity">
-                            <span>
-                              Qty: <span class="quantity-label"></span>
-                            </span>
-                          
-                          </div>
-                        
-                        </div>
                   </div>
-                 
-                    <!-- <div class="cart-item">
-                    <img src="./assets/images/food-menu-4.png" class="product-image">
-                    <div class="cart-item-details">
-                      <h4 class="card-title">Fried Chicken </h4>
-                      <div class="price-text">$50.00</div>
-                      <div class="product-quantity">
-                        <span>
-                          Qty: <span class="quantity-label"></span>
-                        </span>
-  
-                      </div>
+                </div>
+                <div class="order-line"></div>
+                <div class="order-summary">
+                  <div class="order-details">
+                    <p class="order-items-number">2 items</p>
+                    <p class="order-total-price">Total Price: $100.00</p>
+                  </div>
+                  <div class="order-status">
+                    <p class="order-status-complete">Completed</p>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </li>
+
+            <li>
+              <div class="food-menu-card">
+                <p class="order-number-text">Order# <span class="order-number"></span></p>
+                <div class="cart-item">
+                  <img src="./assets/images/food-menu-1.png" class="product-image">
+                  <div class="cart-item-details">
+                    <h4 class="card-title">Fried Chicken </h4>
+                    <div class="price-text">$50.00</div>
+                    <div class="product-quantity">
+                      <span>
+                        Qty: <span class="quantity-label"></span>
+                      </span>
+
                     </div>
-                    </div> -->
-                  
-                    <div class="order-line"></div> 
-                    <div class="order-summary">
-                      <div class="order-details">
-                        <p class="order-items-number">2 items</p>
-                        <p class="order-total-price">Total Price: $100.00</p>
-                      </div>
-                      <div class="order-status">
-                          <p class="order-status-complete">Completed</p>
-                          <!-- <p class="order-status-cancle" >Canceled</p> -->
-                        </div>
+
+                  </div>
+                </div>
+
+                <div class="order-line"></div>
+                <div class="order-summary">
+                  <div class="order-details">
+                    <p class="order-items-number">2 items</p>
+                    <p class="order-total-price">Total Price: $100.00</p>
+                  </div>
+                  <div class="order-status">
+                    <!-- <p class="order-status-complete">Completed</p> -->
+                    <p class="order-status-cancle">Canceled</p>
+                  </div>
+                </div>
+
+
+              </div>
+
+            </li>
+
+            <li>
+              <div class="food-menu-card">
+                <p class="order-number-text">Order# <span class="order-number"></span></p>
+                <div class="cart-item">
+                  <img src="./assets/images/food-menu-1.png" class="product-image">
+                  <div class="cart-item-details">
+                    <h4 class="card-title">Fried Chicken </h4>
+                    <div class="price-text">$50.00</div>
+                    <div class="product-quantity">
+                      <span>
+                        Qty: <span class="quantity-label"></span>
+                      </span>
+
                     </div>
-                  
-                    
-                </div>  
-               
-              </li>
+
+                  </div>
+                </div>
+
+                <div class="order-line"></div>
+                <div class="order-summary">
+                  <div class="order-details">
+                    <p class="order-items-number">2 items</p>
+                    <p class="order-total-price">Total Price: $100.00</p>
+                  </div>
+                  <div class="order-status">
+                    <p class="order-status-complete">Completed</p>
+                    <!-- <p class="order-status-cancle" >Canceled</p> -->
+                  </div>
+                </div>
+              </div>
+
+            </li>
           </ul>
         </div>
       </section>

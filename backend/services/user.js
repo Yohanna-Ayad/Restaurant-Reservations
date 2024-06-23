@@ -25,11 +25,11 @@ const userServices = {
     if (!isMatch) {
       throw new Error("Invalid Email or Password");
     }
-    const permissions = await user.getPermissions();
-    const plainPermissions = permissions.map(
-      (permission) => permission.get({ plain: true }).id
-    );
-    const token = await utilities.generateToken(user, plainPermissions);
+    // const permissions = await user.getPermissions();
+    // const plainPermissions = permissions.map(
+    //   (permission) => permission.get({ plain: true }).id
+    // );
+    const token = await utilities.generateToken(user);
     user.tokens = user.tokens || [];
     user.tokens = user.tokens.concat(token);
     await user.save();
@@ -37,7 +37,7 @@ const userServices = {
       id: user.id,
       name: user.name,
       email: user.email,
-      verified: user.verified,
+      // verified: user.verified,
       role: user.role,
       tokens: user.tokens,
     };

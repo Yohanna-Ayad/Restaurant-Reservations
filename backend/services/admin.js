@@ -4,7 +4,7 @@ const Plate = require("../databse/plate");
 const utilities = require("../functions/utils");
 
 const signupProcess = async ({ name, email, password, role, permission }) => {
-  if (!name || !email || !password || !role || !permission) {
+  if (!name || !email || !password || !role) {
     return "All fields are required!";
   }
   if (await User.findOne({ where: { email } })) {
@@ -16,14 +16,14 @@ const signupProcess = async ({ name, email, password, role, permission }) => {
     console.error("Password must be at least 8 characters!");
     return "Password must be at least 8 characters!";
   }
-  if (role !== "admin" && role !== "user" && role !== "member") {
+  if (role !== "admin" && role !== "user") {
     console.error("Role does not exist!");
     return "Role does not exist!";
   }
-  if (permission.length === 0 || !permission) {
-    console.error("Permission is required!");
-    return "Permission is required!";
-  }
+  // if (permission.length === 0 || !permission) {
+  //   console.error("Permission is required!");
+  //   return "Permission is required!";
+  // }
   return null;
 };
 
@@ -42,13 +42,13 @@ const replaceImage = async (plateName, Image) => {
 };
 
 const adminServices = {
-  addMember: async ({ name, email, password, role, permission }) => {
+  addMember: async ({ name, email, password, role }) => {
     const validationError = await signupProcess({
       name,
       email,
       password,
       role,
-      permission,
+      // permission,
     });
     if (validationError) {
       return validationError;
@@ -64,7 +64,7 @@ const adminServices = {
     if (!user) {
       return "Failed to create user!";
     }
-    await user.setPermissions(permission);
+    // await user.setPermissions(permission);
     // mailer.handleSignup(user.email)
     returnData = {
       id: user.id,
@@ -164,6 +164,10 @@ const adminServices = {
     return plate;
   },
 
+  getAllMembers: async () => {
+    const members = await User.findAll({ where: { role: "user" } });
+    return members;
+  },
   // Function to update Plate
   // updatePlate: async (plateName,payload) => {
   //   if (!plateName) {
@@ -220,11 +224,12 @@ const adminServices = {
   //   return plate;
   // },
   // Function to delete Member
-  deleteMember: async (email) => {
-    const user = await User.findOne({ where: { email } });
-    if (!user) {
-      return "User not found";
-    }
+  deleteMember: async (id) => {
+    // const user = await User.findOne({ where: { email } });
+    // if (!user) {
+    //   return "User not found";
+    // }
+    const user = await User.findOne({ where: { id:id } });
     await user.destroy();
     return "User deleted successfully";
   },

@@ -6,8 +6,8 @@ const bcrypt = require("bcrypt");
 require("dotenv").config();
 
 // Establish associations
-User.belongsToMany(Permissions, { through: UserPermission });
-Permissions.belongsToMany(User, { through: UserPermission });
+// User.belongsToMany(Permissions, { through: UserPermission });
+// Permissions.belongsToMany(User, { through: UserPermission });
 
 const sequelize = require("./postgres");
 // Sync the models with the database
@@ -16,18 +16,18 @@ sequelize
   .then(async () => {
     console.log("Tables created and associations established");
     // Define associations between tables
-    const permissionsData = [
-      { permission: "Add_edit_new_recipe" },
-      { permission: "Receive_order" },
-      { permission: "Add_delete_user" },
-    ];
+    // const permissionsData = [
+    //   { permission: "Add_edit_new_recipe" },
+    //   { permission: "Receive_order" },
+    //   { permission: "Add_delete_user" },
+    // ];
 
-    permissionsData.forEach(async (permission) => {
-      await Permissions.findOrCreate({
-        where: { permission: permission.permission },
-        defaults: permission,
-      });
-    });
+    // permissionsData.forEach(async (permission) => {
+    //   await Permissions.findOrCreate({
+    //     where: { permission: permission.permission },
+    //     defaults: permission,
+    //   });
+    // });
 
     const adminUser = {
       name: "Johan",
@@ -42,20 +42,21 @@ sequelize
           // User not found, create it or handle the situation as needed
           console.log("User not found. Creating a new user...");
           // Example of creating a new user
-          User.create(adminUser).then((newUser) => {
-            Permissions.findAll().then((permissions) => {
-              newUser.addPermissions(permissions).then(() => {
-                console.log("Permissions added to the new user.");
-              });
-            });
-          });
+          User.create(adminUser)
+          // .then((newUser) => {
+            // Permissions.findAll().then((permissions) => {
+            //   newUser.addPermissions(permissions).then(() => {
+            //     console.log("Permissions added to the new user.");
+            //   });
+            // });
+          // });
         } else {
           // User found, add permissions
-          Permissions.findAll().then((permissions) => {
-            user.addPermissions(permissions).then(() => {
-              console.log("Permissions added to the existing user.");
-            });
-          });
+          // Permissions.findAll().then((permissions) => {
+          //   user.addPermissions(permissions).then(() => {
+          //     console.log("Permissions added to the existing user.");
+          //   });
+          // });
         }
       })
       .catch((error) => {

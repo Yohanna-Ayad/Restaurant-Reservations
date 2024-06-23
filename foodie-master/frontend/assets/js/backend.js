@@ -1,4 +1,4 @@
-const backendURL = "192.168.1.106:3000"
+const backendURL = "localhost:3000"
 const getCategories = async () => {
   const response = await fetch( `http://${backendURL}/categories`, {
     method: "GET",

@@ -4,10 +4,12 @@ const userController = {
       // Function to login a user       Done
       loginUser: async (req, res) => {
         try {
+          // console.log(req.body.email, req.body.password)
             const user = await userServices.loginUser(req.body.email, req.body.password);
             if (user === 'Email and password are required!') {
               return res.status(400).send({error: user});
             }
+            console.log(user)
             res.send({"message":"Login successful", user});
             } catch (error) {
                 res.status(400).send({"error":error.message});

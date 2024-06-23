@@ -25,7 +25,10 @@ router.post("/admin/Plate",uploadPlateImage.single("Image"),auth ,adminControlle
 router.post("/admin/members",auth,adminController.addMember);
 
 //                      Delete Member
-router.delete("/admin/members", auth, adminController.deleteMember);
+router.delete("/admin/members:id", auth, adminController.deleteMember);
+
+//                      return all members
+router.get("/admin/members",auth,adminController.getAllMembers);
 
 //                     Update Plate
 

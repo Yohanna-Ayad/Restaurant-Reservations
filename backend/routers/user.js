@@ -11,13 +11,13 @@ router.use(bodyParser.urlencoded({ extended: true }));
 
 //              Login
 
-router.post("/users/login",userController.loginUser);
+router.post("/login",userController.loginUser);
 
 //              Log Out for one User
-router.post("/users/logout", auth, userController.logoutUser);
+router.post("/logout", auth, userController.logoutUser);
 
 //              Logout For All Users (Tokens)
-router.post("/users/logoutAll", auth, userController.logoutAllUsers);
+router.post("/logoutAll", auth, userController.logoutAllUsers);
 
 //              Update User
 
