@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    />
-   
-    <title>Meals Mangement</title>
-  </head>
-   
-<body >
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+  <title>Meals Mangement</title>
+</head>
+
+<body>
 
 
-    <header class="header" data-header>
-      <div class="container">
-          <div class="header-container">
-            <a href="adminpage.html" class="logo">Foodie<span class="span">.</span></a>
-            <nav class="navbar" data-navbar>
-                  <ul class="navbar-list">
-  
-                  <!-- <li class="nav-item">
+  <header class="header" data-header>
+    <div class="container">
+      <div class="header-container">
+        <a href="adminpage.html" class="logo">Foodie<span class="span">.</span></a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+
+            <!-- <li class="nav-item">
                       <a href="#home" class="navbar-link" data-nav-link>Home</a>
                   </li> -->
-  
-                  <!-- <li class="nav-item">
+
+            <!-- <li class="nav-item">
                       <a href="#order-list" class="navbar-link" data-nav-link>OrderList</a>
                   </li> -->
-                  </ul>
-              </nav>
-               <div class="header-btn-group">
-                  <!-- <button class="search-btn" aria-label="Search" data-search-btn>
+          </ul>
+        </nav>
+        <div class="header-btn-group">
+          <!-- <button class="search-btn" aria-label="Search" data-search-btn>
                     <ion-icon name="search-outline"></ion-icon>
                   </button> -->
-                  <!-- <button class="search-btn">
+          <!-- <button class="search-btn">
                     <a href="userinfo.html"><ion-icon name="person-outline"></ion-icon></a>
                   </button> -->
-                  <button class="btn" >
-                    <a href="addMeal.html">Add Meal</a>
-                  </button>
-            
-                    <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
-                      <span class="line top"></span>
-                      <span class="line middle"></span>
-                      <span class="line bottom"></span>
-                    </button>
-              </div> 
-          </div>
-       </div>
+          <button class="btn">
+            <a href="addMeal.html">Add Meal</a>
+          </button>
+
+          <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </button>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
     <article>
@@ -62,12 +60,12 @@
         <h2 class="h2 section-title">
           Meals <span class="span">Mangement</span>
         </h2>
-        
-        <div class="container">
-         
-           <!-- <p class="section-subtitle"></p> -->
 
-       
+        <div class="container">
+
+          <!-- <p class="section-subtitle"></p> -->
+
+
 
           <!-- <p class="section-text">
             
@@ -97,45 +95,55 @@
 
           </ul> -->
 
-   
 
-        <section class="user-search-bar">
-          <div class="user-search-bar">
-            <input type="search" id="user-search-input" placeholder="Search by username or email">
-            <button id="user-search-btn">Search</button>
-          </div>
-        
-           
-        </section>
-        <section class="user-list">
+
+          <section class="user-search-bar">
+            <div class="user-search-bar">
+              <input type="search" id="user-search-input" placeholder="Search by username or email">
+              <button id="user-search-btn">Search</button>
+            </div>
+
+
+          </section>
+          <section class="user-list">
             <table id="user-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Image</th>
-                        <th>PlateName</th>
-                        <th>Category</th>
-                        <th>Price</th>
-                        <th>Description</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="user-table-body">
-                    <!-- user list will be rendered here -->
-                </tbody>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Image</th>
+                  <th>PlateName</th>
+                  <th>Category</th>
+                  <th>Price</th>
+                  <th>Discount</th>
+                  <th>Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="user-table-body">
+                <!-- user list will be rendered here -->
+              </tbody>
             </table>
-        </section>
+            <div style="text-align: center; display: flex; justify-content: space-between; margin-inline: 550px;"
+              id="roomingButtons">
+              <button style="background-color: azure; width: 30px; text-justify: auto;"
+                onclick="getPrevoiusPage()">-</button>
+              <p id="pageCount">1</p>
+              <button style="background-color: azure; width: 30px; text-justify: auto;"
+                onclick="getNextPage()">+</button>
+            </div>
+          </section>
         </div>
-      </section> 
-      </article>
-    </main>
+      </section>
+    </article>
+  </main>
 
-   <!-- 
+  <!-- 
     - custom js link
   -->
-  
-  <script src="./assets/js/mealMang.js" defer></script>
+
+  <script src="./assets/js/mealMang.js"></script>
 
 
 </body>
+
 </html>
