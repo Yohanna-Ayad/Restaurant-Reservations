@@ -32,6 +32,9 @@ router.get("/admin/members",auth,adminController.getAllMembers);
 
 //                     Update Plate
 
-router.patch("/admin/plate",uploadPlateImage.single("Image"),auth,adminController.updatePlate);
+router.patch("/admin/plate/:id",uploadPlateImage.single("Image"),auth,adminController.updatePlate);
+
+//                      Delete Plate
+router.delete("/admin/plate/:id",auth,adminController.deletePlate);
 
 module.exports = router;

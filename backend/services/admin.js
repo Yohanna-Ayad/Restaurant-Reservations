@@ -104,11 +104,11 @@ const adminServices = {
     return plate;
   },
 
-  updatePlate: async (plateName, payload) => {
-    if (!plateName) {
+  updatePlate: async (plateId, payload) => {
+    if (!plateId) {
       return "Plate Name is required!";
     }
-    const plate = await Plate.findOne({ where: { PlateName: plateName } });
+    const plate = await Plate.findOne({ where: { id: plateId } });
     if (!plate) {
       return "Plate not found";
     }
@@ -167,6 +167,14 @@ const adminServices = {
   getAllMembers: async () => {
     const members = await User.findAll({ where: { role: "user" } });
     return members;
+  },
+  deletePlate: async (id) => {
+    const plate = await Plate.findOne({ where: { id: id } });
+    if (!plate) {
+      return "Plate not found";
+    }
+    await plate.destroy();
+    return "Plate deleted successfully";
   },
   // Function to update Plate
   // updatePlate: async (plateName,payload) => {

@@ -57,10 +57,10 @@ function renderUserList(meals) {
             <td>${meal.Category}</td>
             <td>${meal.Price}</td>
             <td>${meal.Discount *100} %</td>
-            <td>${meal.Description}</td>
+            <td>${meal.Description}</td>    
             <td>
-                <button class="btn cancle-btn delete-btn" data-user-id="${meal.id}">Delete</button>
-                <button class="btn complete-btn update-btn" data-user-id="${meal.id}">Update</button>
+                <button class="btn cancle-btn delete-btn" onclick="deletePlate(${meal.id})">Delete</button>
+                <button class="btn complete-btn update-btn" onclick="updatePlate(${meal.id})">Update</button>
 
             </td>
             
@@ -140,3 +140,25 @@ function getNextPage() {
         console.error(error);
     });
 }
+
+function deletePlate(id) {
+    fetch(`http://localhost:3000/admin/plate/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(async(response) =>{
+        const data = await response.json();
+        console.log(data);
+        if (data.error) {
+            alert(data.error);
+            return;
+        }
+        alert(data.message);
+        location.reload();
+    }).catch(error => {
+        console.error(error);
+    });
+}
+

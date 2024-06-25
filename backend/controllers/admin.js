@@ -51,7 +51,7 @@ const adminController = {
       //   });
       // }
       // console.log("User have permission to update Plate");
-      const plateName = req.body.PlateName;
+      const plateId = req.params.id;
       payload = {
         Category: req.body.Category,
         Price: req.body.Price,
@@ -60,7 +60,7 @@ const adminController = {
         Image: req.file,
       };
       console.log(payload)
-      const result = await adminService.updatePlate(plateName, payload);
+      const result = await adminService.updatePlate(plateId, payload);
       if (result === "Plate Name is required!" || result === "Invalid updates!" || result === "All fields are required!" || result === "Price must be greater than 0") {
         console.log({ "error": result})
         return res.status(400).send({
@@ -190,7 +190,18 @@ const adminController = {
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
-  }
+  },
+  deletePlate: async (req, res) => {
+    try {
+      const result = await adminService.deletePlate(req.params.id);
+      if (result === "Plate not found") {
+        return res.status(404).send({ error: result });
+      }
+      res.status(200).send({ message: result });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  },
 };
 
 module.exports = adminController;
