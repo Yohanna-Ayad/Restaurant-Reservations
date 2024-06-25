@@ -6,7 +6,7 @@ const userSearchBtn = document.getElementById('user-search-btn');
 const mealTableBody = document.getElementById('user-table-body');
 
 const token = localStorage.getItem('token');
-const meals = await fetch('http://localhost:3000/admin/Plate', {
+// const meals = await fetch('http://localhost:3000/admin/Plate', {
 
 let meals = [
     { id:1, img: "https://johan22.sirv.com/ca779719-6931-444a-bb90-c0a5c93b480c", plateName: 'Spaghetti Carbonara', Category: 'Pasta',price:"12.99" ,description:"Classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper."},
