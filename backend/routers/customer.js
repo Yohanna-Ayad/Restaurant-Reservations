@@ -12,6 +12,10 @@ router.use(bodyParser.urlencoded({ extended: true }));
 //  Get plates with limit and offset
 router.post("/plates", customerController.getPlates);
 
+// Get all plates
+router.get("/plates", customerController.getAllPlates);
+
+
 // Add plate to cart                <<<<<<<<<<<Still need to be Fixed>>>>>>>>>>>>>>
 router.post("/cart", customerController.addToCart);
 

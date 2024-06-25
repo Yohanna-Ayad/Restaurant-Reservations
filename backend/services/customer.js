@@ -10,6 +10,10 @@ const customerService = {
     });
     return plates;
   },
+  getAllPlates: async (payload) => {
+    const plates = await Plate.findAll();
+    return plates;
+  },
   addToCart: async (payload) => {
     const plate = await Plate.findOne({
       where: { PlateName: payload.PlateName },

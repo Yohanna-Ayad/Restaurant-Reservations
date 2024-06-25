@@ -10,6 +10,14 @@ const customerController = {
       res.status(400).send({ error: error.message });
     }
   },
+  getAllPlates: async (req, res) => {
+    try {
+      const result = await customerService.getAllPlates(req.body);
+      res.status(200).send(result);
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  },
     // Function to add plate to cart
     addToCart: async (req, res) => {
       try {

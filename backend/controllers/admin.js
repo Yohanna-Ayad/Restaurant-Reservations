@@ -19,7 +19,6 @@ const adminController = {
         Description: req.body.Description,
         Image: req.file.buffer,
       };
-      // console.log(payload); 
       const result = await adminService.addPlate(payload);
       if (
         result === "All fields are required!" ||
