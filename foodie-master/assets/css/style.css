@@ -326,6 +326,7 @@ body.active { overflow: hidden; }
 
 
 
+
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
@@ -334,8 +335,9 @@ body.active { overflow: hidden; }
 .header-btn-group .btn { display: none; }
 
 .header {
-  --color: var(--ff-shadows-into-light);
-  --btn-color: var(--ff-shadows-into-light);
+  --color: var(--rich-black-fogra-29);
+  --btn-color: var(--rich-black-fogra-29);
+  
 
   position: absolute;
   top: 0;
@@ -347,8 +349,6 @@ body.active { overflow: hidden; }
 }
 
 .header.active {
-  --color: var(--rich-black-fogra-29);
-  --btn-color: var(--rich-black-fogra-29);
 
   position: fixed;
   top: -86px;
@@ -363,9 +363,10 @@ body.active { overflow: hidden; }
 }
 
 .header .container {
+ margin: auto;
+}
+.header .header-container{
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .logo {
@@ -380,11 +381,18 @@ body.active { overflow: hidden; }
   display: inline-block;
   color: var(--deep-saffron);
 }
+.header-container nav{
+  flex: 1;
+  text-align: center;
+  margin-left: 25%;
+}
+
 
 .header-btn-group {
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-left: 30%;
 }
 
 .search-btn {
@@ -394,6 +402,16 @@ body.active { overflow: hidden; }
 
 .search-btn ion-icon { --ionicon-stroke-width: 50px; }
 
+.cart-quantity{
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--dark-orange);
+  color: var(--white);
+  margin: auto;
+  text-align: center;
+  padding: 2px;
+}
 .nav-toggle-btn {
   display: grid;
   gap: 4px;
@@ -407,7 +425,7 @@ body.active { overflow: hidden; }
   transition: var(--transition-1);
 }
 
-.line.middle { width: 20px; }
+.line.middle { width: 10px; }
 
 .line.bottom { margin-left: auto; }
 
@@ -450,9 +468,8 @@ body.active { overflow: hidden; }
   transition: var(--transition-1);
 }
 
+
 .navbar-link:is(:hover, :focus) { color: var(--dark-orange); }
-
-
 
 
 /*-----------------------------------*\
