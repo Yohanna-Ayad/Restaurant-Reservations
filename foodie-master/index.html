@@ -17,6 +17,8 @@
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
 
+
+
   <!-- 
     - google font link
   -->
@@ -36,55 +38,50 @@
 </head>
 
 <body id="top" onload="getCategories()">
-
+  <!-- <script src="./assets/js/script.js"></script> -->
 
   <header class="header" data-header>
     <div class="container">
+      <div class="header-container">
+        <a href="userpage.html" class="logo">Foodie<span class="span">.</span></a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li class="nav-item">
+              <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            </li>
 
-      <h1>
-        <a href="" class="logo">Foodie<span class="span">.</span></a>
-      </h1>
+            <li class="nav-item">
+              <a href="#food-menu" class="navbar-link" data-nav-link>Food Menu</a>
+            </li>
 
-      <nav class="navbar" data-navbar>
-        <ul class="navbar-list">
+            <li class="nav-item">
+              <a href="#footer" class="navbar-link" data-nav-link>Footer</a>
+            </li>
 
-          <li class="nav-item">
-            <a href="#home" class="navbar-link" data-nav-link>Home</a>
-          </li>
+          </ul>
+        </nav>
 
-          <li class="nav-item">
-            <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
-          </li>
+        <div class="header-btn-group">
 
-          <li class="nav-item">
-            <a href="#footer" class="navbar-link" data-nav-link>Contact Us</a>
-          </li>
+          <a class="cart-link header-link" href="checkout.html">
+            <ion-icon class="cart-icon search-btn" name="cart-outline"></ion-icon>
+            <div class="cart-quantity js-cart-quantity">0</div>
+          </a> 
 
-        </ul>
-      </nav>
-
-      <!-- <div class="header-btn-group">
-        <button class="search-btn" aria-label="Search" data-search-btn>
-          <ion-icon name="search-outline"></ion-icon>
-        </button>
-
-        <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
-          <span class="line top"></span>
-          <span class="line middle"></span>
-          <span class="line bottom"></span>
-        </button>
-      </div> -->
-
-      <a class="cart-link header-link" href="checkout.html">
-        <ion-icon class="cart-icon" name="cart-outline"></ion-icon>
-        <div class="cart-quantity js-cart-quantity">0</div>
-      </a>    
+          <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
+ 
 
 
   
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
         // JavaScript for managing the cart
         const cart = [
@@ -147,7 +144,7 @@
 
         // Initial render
         renderCartItems();
-    </script>
+    </script> -->
 
 
   <!-- 
@@ -498,7 +495,7 @@
 
                   <div class="badge">-15%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+                  <button class="btn food-menu-btn" id="noOfItemsBtn">Order Now</button>
                 </div>
 
                 <div class="wrapper">
@@ -537,7 +534,7 @@
 
                   <div class="badge">-10%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+                  <button class="btn food-menu-btn" id="noOfItemsBtn">Order Now</button>
                 </div>
 
                 <div class="wrapper">
@@ -576,7 +573,7 @@
 
                   <div class="badge">-25%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+                  <button class="btn food-menu-btn" id="noOfItemsBtn">Order Now</button>
                 </div>
 
                 <div class="wrapper">
@@ -615,7 +612,7 @@
 
                   <div class="badge">-20%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+                  <button class="btn food-menu-btn"  id="noOfItemsBtn">Order Now</button>
                 </div>
 
                 <div class="wrapper">
@@ -654,7 +651,7 @@
 
                   <div class="badge">-5%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+                  <button class="btn food-menu-btn"  id="noOfItemsBtn">Order Now</button>
                 </div>
 
                 <div class="wrapper">
@@ -693,7 +690,7 @@
 
                   <div class="badge">-15%</div>
 
-                  <button class="btn food-menu-btn">Order Now</button>
+                  <button class="btn food-menu-btn" id="noOfItemsBtn">Order Now</button>
                 </div>
 
                 <div class="wrapper">
@@ -1355,13 +1352,18 @@
     - custom js link
   -->
   <script src="./assets/js/script.js" defer></script>
+  <script src="./assets/js/Cart.js"></script>
+
 
   <!-- 
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="./assets/js/backend.js"></script>
+  <!-- <script src="./assets/js/backend.js"></script> -->
+
+
+
 
 </body>
 

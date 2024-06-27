@@ -71,18 +71,21 @@ function renderUserList(meals) {
 
 renderUserList(meals);
 
-mealTableBody.addEventListener('click', deleteUser);
+// mealTableBody.addEventListener('click', deleteUser);
+// mealTableBody.addEventListener('click', updatePlate);
 
-function deleteUser(event) {
-    if (event.target.classList.contains('delete-btn')) {
-        const userId = event.target.dataset.userId;
-        const index = meals.findIndex(meal => meal.id === parseInt(userId));
-        if (index !== -1) {
-            meals.splice(index, 1);
-            renderUserList(meals);
-        }
-    }
-}
+// function deleteUser(event) {
+//     if (event.target.classList.contains('delete-btn')) {
+//         const userId = event.target.dataset.userId;
+//         const index = meals.findIndex(meal => meal.id === parseInt(userId));
+//         if (index !== -1) {
+//             meals.splice(index, 1);
+//             renderUserList(meals);
+//         }
+//     }
+// }
+
+
 
 function getPrevoiusPage() {
     offset -= 10;
@@ -162,3 +165,13 @@ function deletePlate(id) {
     });
 }
 
+function updatePlate(id) {
+    localStorage.setItem('plateID', id);
+    window.location.href = 'updateMeal.html';
+
+   
+}
+function updateMeal(){
+    window.location.href = 'mealsMang.html';
+
+}

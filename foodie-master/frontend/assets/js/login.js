@@ -26,6 +26,7 @@ const loginAPI = async () =>{
             window.location.href = "./adminpage.html";
         }
         if (responseData.user.user.role === "user") {
+
           window.location.href = "/foodie-master/frontend/userpage.html";
       }
       // window.location.href = "/index.html";

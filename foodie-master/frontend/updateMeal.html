@@ -10,13 +10,15 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
     <script defer src="assets/js/login.js"></script>
+    
    
-    <title>Add Meal Page</title>
+    <title>Update Meal Page</title>
   </head>
    
 <body id="top" onload="getCategories()">
 
   <script src="./assets/js/admin.js"></script>
+  <script src="./assets/js/mealMang.js"></script>
   <script src="./assets/js/addMeal.js"></script>
 
     <header class="header" data-header>
@@ -40,9 +42,9 @@
               </ul>
             </nav>
                <div class="header-btn-group">
-                  <button class="btn" >
+                  <!-- <button class="btn" >
                     <a href="mealsMang.html">Back</a>
-                  </button>
+                  </button> -->
             
                     <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
                       <span class="line top"></span>
@@ -58,7 +60,7 @@
 
             <div id="login-form">
                 <!-- <form> -->
-                    <h1>Add New meal</h1>
+                    <h1>Update Meal</h1>
                   
                     <input type="text" placeholder="PlateName" id="PlateName" />
                     <input type="text" placeholder="Category" id="Category" />
@@ -66,7 +68,7 @@
                     <input type="number" placeholder="Discount" id="Discount" />
                     <input type="text" placeholder="Description" id="Description" />
                     <input type="file" placeholder="Image" id="Image">
-                    <input type="submit" onclick="addMeal()" />
+                    <input type="submit" onclick="updateMeal()" />
                 <!-- </form> -->
             </div>
             <div class="toggle-container">
