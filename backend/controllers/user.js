@@ -64,6 +64,15 @@ const userController = {
           res.status(400).send({"message":error.message});
         }
       },
+      receiveOrders: async (req, res) => {
+        try {
+            const orders = await userServices.receiveOrders();
+            res.send(orders);
+        } catch (error) {
+            res.status(400).send(error.message);
+        }
+      },
+
 };
 
 module.exports = userController;

@@ -23,4 +23,7 @@ router.post("/logoutAll", auth, userController.logoutAllUsers);
 
 router.patch("/users/me", auth, userController.updateUser);
 
+//              Receive Orders
+router.get("/users/me/orders", auth, userController.receiveOrders);
+
 module.exports = router;

@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const utilities = require("../functions/utils");
 const Sirv = require("../functions/Sirv");
+const Cart = require("../databse/order");
 
 const User = require('../databse/user');
 
@@ -97,6 +98,10 @@ const userServices = {
     });
     await user.save();
     return user;
+  },
+  receiveOrders: async () => {
+    const orders = await Cart.findAll({ where: { status: "pending" }});
+    return orders;
   },
 };  
 

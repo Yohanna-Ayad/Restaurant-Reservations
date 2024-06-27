@@ -43,33 +43,33 @@
 
   <header class="header" data-header>
     <div class="container">
-        <div class="header-container">
-          <a href="adminpage.html" class="logo">Foodie<span class="span">.</span></a>
-          <nav class="navbar" data-navbar>
-                <ul class="navbar-list">
-                </ul>
-            </nav>
-             <div class="header-btn-group">
-              
-                <button class="login-btn" >
-                  <a href="index.html">Logout</a>
-                </button>
-          
-                  <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
-                    <span class="line top"></span>
-                    <span class="line middle"></span>
-                    <span class="line bottom"></span>
-                  </button>
-            </div> 
+      <div class="header-container">
+        <a href="adminpage.html" class="logo">Foodie<span class="span">.</span></a>
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+          </ul>
+        </nav>
+        <div class="header-btn-group">
+
+          <button class="login-btn">
+            <a href="index.html">Logout</a>
+          </button>
+
+          <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+            <span class="line top"></span>
+            <span class="line middle"></span>
+            <span class="line bottom"></span>
+          </button>
         </div>
-     </div>
-</header>
+      </div>
+    </div>
+  </header>
 
   <!-- 
     - #SEARCH BOX
   -->
 
-  <div class="search-container" data-search-container>
+  <!-- <div class="search-container" data-search-container>
 
     <div class="search-box">
       <input type="search" name="search" aria-label="Search here" placeholder="Type keywords here..."
@@ -82,7 +82,7 @@
 
     <button class="search-close-btn" aria-label="Cancel search" data-search-close-btn></button>
 
-  </div>
+  </div> -->
 
 
   <main>
@@ -95,17 +95,34 @@
       <section class="section order-list" id="order-list">
         <div class="container">
 
-           <!-- <p class="section-subtitle"></p> -->
+          <!-- <p class="section-subtitle"></p> -->
 
           <h2 class="h2 section-title">
             Orders <span class="span">List</span>
           </h2>
 
-          <!-- <p class="section-text">
+          <section class="user-list">
+            <table id="user-table">
+              <thead>
+                <tr>
+                  <th>Order#</th>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total Price</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="user-table-body">
+              </tbody>
+            </table>
+
+          </section>
+            <!-- <p class="section-text">
             
           </p>  -->
 
-          <!-- <ul class="fiter-list" id="fiter-list">
+            <!-- <ul class="fiter-list" id="fiter-list">
 
             <li>
               <button class="filter-btn  active">All</button>
@@ -129,7 +146,7 @@
 
           </ul> -->
 
-          <ul class="food-menu-list" id="food-menu-list">
+            <!-- <ul class="food-menu-list" id="food-menu-list">
 
             <li>
               <div class="food-menu-card">
@@ -147,9 +164,9 @@
                         </div>
                       
                       </div>
-                </div>
-               
-                  <!-- <div class="cart-item">
+                </div> -->
+
+            <!-- <div class="cart-item">
                   <img src="./assets/images/food-menu-4.png" class="product-image">
                   <div class="cart-item-details">
                     <h4 class="card-title">Fried Chicken </h4>
@@ -162,7 +179,7 @@
                     </div>
                   </div>
                   </div> -->
-                
+            <!--                 
                   <div class="order-line"></div> 
                   <div class="order-summary">
                     <div class="order-details">
@@ -171,20 +188,20 @@
                       <div class="order-status">
                         <button class="btn complete-btn">Complete</button>
                         <button class="btn cancle-btn">Cancel</button>
-                      </div>
-                     
-                    </div>
-                  </div>
-                
-                  
-              </div>  
-             
-            </li>
-          
-            <li>
-              <div class="food-menu-card">
-                <p class="order-number-text">Order# <span class="order-number"></span></p>
-               <div class="cart-item">
+                      </div> -->
+
+        </div>
+        </div>
+
+
+        </div>
+
+        </li>
+
+        <li>
+          <!-- <div class="food-menu-card"> -->
+          <!-- <p class="order-number-text">Order# <span class="order-number"></span></p> -->
+          <!-- <div class="cart-item">
                     <img src="./assets/images/food-menu-2.png" class="product-image">
                     <div class="cart-item-details">
                       <h4 class="card-title">Fried Chicken </h4>
@@ -197,8 +214,8 @@
                       </div>
                     
                     </div>
-                </div>
-<!--                
+                </div> -->
+          <!--                
                   <div class="cart-item">
                   <img src="./assets/images/food-menu-5.png" class="product-image">
                   <div class="cart-item-details">
@@ -212,8 +229,8 @@
                     </div>
                   </div>
                   </div> -->
-                
-                  <div class="order-line"></div> 
+
+          <!-- <div class="order-line"></div> 
                   <div class="order-summary">
                     <div class="order-details">
                       <p class="order-items-number">2 items</p>
@@ -224,15 +241,15 @@
                       </div>
                      
                     </div>
-                  </div>
-                
-                  
-              </div>  
-             
-            </li>
+                  </div> -->
 
-         <li>
-              <div class="food-menu-card">
+
+          <!-- </div>   -->
+
+        </li>
+
+        <li>
+          <!-- <div class="food-menu-card">
                 <p class="order-number-text">Order# <span class="order-number"></span></p>
                <div class="cart-item">
                     <img src="./assets/images/food-menu-3.png" class="product-image">
@@ -247,9 +264,9 @@
                       </div>
                     
                     </div>
-                </div>
-               
-                  <!-- <div class="cart-item">
+                </div> -->
+
+          <!-- <div class="cart-item">
                   <img src="./assets/images/food-menu-6.png" class="product-image">
                   <div class="cart-item-details">
                     <h4 class="card-title">Fried Chicken </h4>
@@ -262,9 +279,9 @@
                     </div>
                   </div>
                   </div> -->
-                  
-                
-                  <div class="order-line"></div> 
+
+
+          <!-- <div class="order-line"></div> 
                   <div class="order-summary">
                     <div class="order-details">
                       <p class="order-items-number">2 items</p>
@@ -275,17 +292,17 @@
                       </div>
                      
                     </div>
-                  </div>
-                
-                  
-              </div>  
-             
-            </li>
+                  </div> -->
 
-          </ul>
+
+          </div>
+
+        </li>
+
+        </ul>
         </div>
       </section>
-      
+
     </article>
   </main>
 
@@ -304,7 +321,7 @@
   <!-- 
     - custom js link
   -->
-  
+
   <script src="./assets/js/script.js" defer></script>
 
 
