@@ -1,7 +1,10 @@
 const bcrypt = require("bcryptjs");
 const utilities = require("../functions/utils");
 const Sirv = require("../functions/Sirv");
-const Cart = require("../databse/order");
+const Order = require("../databse/order");
+const OrderItem = require("../databse/OrderItem");
+const Plate = require("../databse/plate");
+
 
 const User = require('../databse/user');
 
@@ -100,8 +103,34 @@ const userServices = {
     return user;
   },
   receiveOrders: async () => {
-    const orders = await Cart.findAll({ where: { status: "pending" }});
+    const orders = await Order.findAll({ where: { status: "pending" }});
+    const orderItems = await OrderItem.findAll({ where: { orderId: orders.map((order) => order.orderId) }});
+    
+    const plateIds = orderItems.map((item) => item.PlateId);
+    const plates = await Plate.findAll({ where: { id: plateIds }});
+    const plateMap = {};
+    plates.forEach((plate) => {
+      plateMap[plate.id] = plate;
+    });
+    orderItems.forEach((item) => {
+      item.dataValues.plate = plateMap[item.PlateId];
+    });
+    orders.forEach((order) => {
+      order.dataValues.items = orderItems.filter((item) => item.orderId === order.orderId);
+    });
     return orders;
+  },
+  completeOrder: async (id) => {
+    const order = await Order.findOne({ where: { orderId: id }});
+    order.status = "completed";
+    await order.save();
+    return order;
+  },
+  completeOrderList: async (id) => {
+    const order_item = await OrderItem.findOne({ where: { id }});
+    order_item.status = "completed";
+    await order_item.save();
+    return order_item;
   },
 };  
 

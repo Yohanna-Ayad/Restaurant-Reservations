@@ -11,6 +11,10 @@ const Order = sequelize.define('Order', {
     type: DataTypes.ENUM('pending', 'completed'),
     allowNull: false,
   },
+  tableId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
 }, {
   sequelize,
   modelName: 'Order',

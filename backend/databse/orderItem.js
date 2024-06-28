@@ -9,13 +9,18 @@ const OrderItem = sequelize.define('OrderItem', {
     primaryKey: true,
     autoIncrement: true,
   },
-  orderId: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
   quantity: {
     type: DataTypes.INTEGER,
     allowNull: false,
+  },
+  PlateId: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    
+  },
+  status: {
+    type: DataTypes.ENUM('pending', 'completed'),
+    defaultValue: 'pending',
   },
 }, {
   sequelize,
@@ -26,6 +31,10 @@ const OrderItem = sequelize.define('OrderItem', {
 
 // Establish associations
 OrderItem.belongsTo(Order, { foreignKey: 'orderId' });
-OrderItem.hasMany(Plate, { foreignKey: 'orderItemId' }); // Adjust according to your Plate model
+// OrderItem.hasMany(Plate, { foreignKey: 'orderItemId' }); // Adjust according to your Plate model
+OrderItem.belongsTo(Plate, { foreignKey: 'PlateId' });
+// Plate.belongsTo(OrderItem, { foreignKey: 'orderItemId' }); // Adjust according to your Plate model
+Order.hasMany(OrderItem, { foreignKey: 'orderId' });
+
 
 module.exports = OrderItem;

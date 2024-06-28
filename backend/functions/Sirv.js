@@ -36,7 +36,7 @@ const Sirv = {
             });
             await client.remove(oldImageName);
             await client.close();
-    
+            
             // Upload the new image
             const client2 = new ftp.Client();
             await client2.access({

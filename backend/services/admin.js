@@ -114,15 +114,15 @@ const adminServices = {
     }
 
     const allowedUpdates = [
+      "PlateName",
       "Category",
       "Price",
       "Discount",
       "Description",
       "Image",
     ];
-    const updatesKeys = Object.keys(payload).filter(
-      (update) => update !== "PlateName"
-    );
+    const updatesKeys = Object.keys(payload);
+    console.log(payload)
 
     const dataToUpdate = updatesKeys.filter(
       (update) => payload[update] !== undefined
@@ -145,7 +145,7 @@ const adminServices = {
       if (update === "Image") {
         if (plate.Image) {
           console.log("Replacing image")
-          await replaceImage(plateName, payload.Image);
+          await replaceImage(plate.PlateName, payload.Image);
         } else {
           const image = await Sirv.uploadImage(payload.Image.buffer);
           if (!image) {
@@ -240,6 +240,13 @@ const adminServices = {
     const user = await User.findOne({ where: { id:id } });
     await user.destroy();
     return "User deleted successfully";
+  },
+  getPlateById: async (id) => {
+    const plate = await Plate.findOne({ where: { id: id } });
+    if (!plate) {
+      return "Plate not found";
+    }
+    return plate;
   },
 };
 

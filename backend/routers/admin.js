@@ -37,4 +37,7 @@ router.patch("/admin/plate/:id",uploadPlateImage.single("Image"),auth,adminContr
 //                      Delete Plate
 router.delete("/admin/plate/:id",auth,adminController.deletePlate);
 
+//                      Get Plate By ID
+router.get("/admin/plate/:id",auth,adminController.getPlateById);
+
 module.exports = router;

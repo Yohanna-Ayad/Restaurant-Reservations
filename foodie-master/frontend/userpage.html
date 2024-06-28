@@ -38,8 +38,8 @@
 
 </head>
 
-<body id="top" onload="getCategories()">
-
+<body id="top">
+  <script src="./assets/js/userPage.js"></script>
 
   <header class="header" data-header>
     <div class="container">
@@ -101,7 +101,10 @@
             Orders <span class="span">List</span>
           </h2>
 
-          <section class="user-list">
+
+          <div id="orders-list"></div>
+
+          <!-- <section class="user-list">
             <table id="user-table">
               <thead>
                 <tr>
@@ -111,18 +114,19 @@
                   <th>Quantity</th>
                   <th>Total Price</th>
                   <th>Status</th>
+                  <th>TableID</th>
                 </tr>
               </thead>
-              <tbody id="user-table-body">
+              <tbody id="order-table-body">
               </tbody>
             </table>
 
-          </section>
-            <!-- <p class="section-text">
+          </section> -->
+          <!-- <p class="section-text">
             
           </p>  -->
 
-            <!-- <ul class="fiter-list" id="fiter-list">
+          <!-- <ul class="fiter-list" id="fiter-list">
 
             <li>
               <button class="filter-btn  active">All</button>
@@ -146,7 +150,7 @@
 
           </ul> -->
 
-            <!-- <ul class="food-menu-list" id="food-menu-list">
+          <!-- <ul class="food-menu-list" id="food-menu-list">
 
             <li>
               <div class="food-menu-card">
@@ -166,7 +170,7 @@
                       </div>
                 </div> -->
 
-            <!-- <div class="cart-item">
+          <!-- <div class="cart-item">
                   <img src="./assets/images/food-menu-4.png" class="product-image">
                   <div class="cart-item-details">
                     <h4 class="card-title">Fried Chicken </h4>
@@ -179,7 +183,7 @@
                     </div>
                   </div>
                   </div> -->
-            <!--                 
+          <!--                 
                   <div class="order-line"></div> 
                   <div class="order-summary">
                     <div class="order-details">
@@ -331,7 +335,7 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script src="./assets/js/backend.js"></script>
+  <!-- <script src="./assets/js/backend.js"></script> -->
 
 </body>
 
