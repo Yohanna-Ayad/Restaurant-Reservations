@@ -1,3 +1,4 @@
+const backendURL = "http://localhost:3000"
 const addMeal = async () => {
     const token = localStorage.getItem("token");
     const PlateName = document.getElementById("PlateName").value;
@@ -18,7 +19,7 @@ const addMeal = async () => {
 
     console.log(...formData); // log formData content
 
-    const response = await fetch("http://localhost:3000/admin/Plate", {
+    const response = await fetch(`${backendURL}/admin/Plate`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${token}`

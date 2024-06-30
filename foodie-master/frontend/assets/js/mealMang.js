@@ -1,5 +1,4 @@
-
-// script.js
+const backendURL = "http://localhost:3000"// script.js
 const searchInput = document.getElementById('user-search-input');
 const userSearchBtn = document.getElementById('user-search-btn');
 const mealTableBody = document.getElementById('user-table-body');
@@ -10,7 +9,7 @@ const token = localStorage.getItem('token');
 
 
 var offset = 0;
-const meals = fetch('http://localhost:3000/plates', {
+const meals = fetch(`${backendURL}/plates`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -93,7 +92,7 @@ function getPrevoiusPage() {
         offset = 0;
         return;
     }
-    fetch('http://localhost:3000/plates', {
+    fetch(`${backendURL}/plates`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -119,7 +118,7 @@ function getPrevoiusPage() {
 
 function getNextPage() {
     offset += 10;
-    fetch('http://localhost:3000/plates', {
+    fetch(`${backendURL}/plates`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -145,7 +144,7 @@ function getNextPage() {
 }
 
 function deletePlate(id) {
-    fetch(`http://localhost:3000/admin/plate/${id}`, {
+    fetch(`${backendURL}/admin/plate/${id}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
@@ -167,10 +166,9 @@ function deletePlate(id) {
 
 function updatePlate(id) {
     localStorage.setItem('plateID', id);
-    window.location.href = 'updateMeal.html';
-
-   
+    window.location.href = 'updateMeal.html';  
 }
+
 function updateMeal(){
     window.location.href = 'mealsMang.html';
 

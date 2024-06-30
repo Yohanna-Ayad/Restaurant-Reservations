@@ -19,7 +19,7 @@ const Sirv = {
     
             await client.upload(Readable.from(img), uuid )
             await client.close()
-            return "https://johan22.sirv.com/"+uuid;
+            return "https://ayasayed.sirv.com/"+uuid;
         } catch (e) {
             console.error(e);
         }
@@ -49,7 +49,7 @@ const Sirv = {
             await client2.close();
             
             // Return the reference link of the new image
-            return "https://johan22.sirv.com/" + uuid;
+            return "https://ayasayed.sirv.com/" + uuid;
         } catch (error) {
             console.error(error);
             throw new Error("Failed to replace image");

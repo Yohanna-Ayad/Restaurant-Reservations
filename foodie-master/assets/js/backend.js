@@ -1,6 +1,6 @@
 const backendURL = "http://localhost:3000"
 const getCategories = async () => {
-  const response = await fetch( `http://${backendURL}/categories`, {
+  const response = await fetch( `${backendURL}/categories`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -90,7 +90,7 @@ const getFilteredRestaurants = async (category) => {
     Category: category,
   };
 
-  const response = await fetch(`http://${backendURL}/category`, {
+  const response = await fetch(`${backendURL}/category`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -180,7 +180,7 @@ const getFilteredRestaurants = async (category) => {
     });
 };
 
-var count = 0;
+var  cartQyt = 0;
 const cart = [];
 
 const getPlates = async () => {
@@ -189,7 +189,7 @@ const getPlates = async () => {
     limit: 10,
   };
 
-  const response = await fetch(`http://${backendURL}/plates`, {
+  const response = await fetch(`${backendURL}/plates`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -207,7 +207,7 @@ const getPlates = async () => {
     .then((data) => {
       console.log(data);
       document.getElementById("food-menu-list").innerHTML = "";
-
+      let cartQtyElement = document.querySelector(".js-cart-quantity")
       data.forEach((element) => {
         const list = document.createElement("li");
         const card = document.createElement("div");
@@ -228,12 +228,12 @@ const getPlates = async () => {
         button.className = "btn food-menu-btn";
         button.textContent = "Order Now";
         button.onclick = function() {
+          cartQyt++;
+          localStorage.setItem("cartQyt", cartQyt);
+          cartQtyElement.textContent = cartQyt;
           cart.push(element);
           console.log(cart)
           localStorage.setItem("cart", JSON.stringify(cart));
-          count++;
-          console.log(count)
-          localStorage.setItem("count", count);
         };
         const wrapper = document.createElement("div");
         wrapper.className = "wrapper";

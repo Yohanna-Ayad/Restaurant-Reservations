@@ -411,6 +411,10 @@ body.active { overflow: hidden; }
   gap: 4px;
 }
 
+.nav-toggle-btn {
+  display: grid;
+  gap: 4px;
+}
 .line {
   width: 10px;
   height: 3px;
@@ -623,9 +627,8 @@ body.active { overflow: hidden; }
 .order-list {
   background-color: var(--isabelline);
   text-align: center;
+  margin: 20px;
 }
-
-.order-list .section-title { margin-block: 10px 20px; }
 
 .order-list .section-text {
   max-width: 44ch;

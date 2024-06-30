@@ -1,6 +1,6 @@
-const backendURL = "localhost:3000"
+const backendURL = "http://localhost:3000"
 const getCategories = async () => {
-  const response = await fetch( `http://${backendURL}/categories`, {
+  const response = await fetch( `${backendURL}/categories`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -89,7 +89,7 @@ const getFilteredRestaurants = async (category) => {
     Category: category,
   };
 
-  const response = await fetch(`http://${backendURL}/category`, {
+  const response = await fetch(`${backendURL}/category`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -188,7 +188,7 @@ const getPlates = async () => {
     limit: 10,
   };
 
-  const response = await fetch(`http://${backendURL}/plates`, {
+  const response = await fetch(`${backendURL}/plates`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

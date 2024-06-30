@@ -1,5 +1,6 @@
+const backendURL = "http://localhost:3000"
 const findPlateById = (id) => {
-  fetch(`http://localhost:3000/admin/plate/${id}`, {
+  fetch(`${backendURL}/admin/plate/${id}`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -67,7 +68,7 @@ function updatePlate() {
   removeEmptyProperties(data);
   console.log(data)
 
-  fetch(`http://localhost:3000/admin/plate/${plateId}`, {
+  fetch(`${backendURL}/admin/plate/${plateId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

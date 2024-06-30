@@ -1,3 +1,4 @@
+const backendURL = "http://localhost:3000"
 const searchInput = document.getElementById("user-search-input");
 const userSearchBtn = document.getElementById("user-search-btn");
 const userTableBody = document.getElementById("user-table-body");
@@ -7,7 +8,7 @@ const token = localStorage.getItem("token");
 const users = [];
 
 const fetchUsers = async () => {
-  const response = await fetch("http://localhost:3000/admin/members", {
+  const response = await fetch(`${backendURL}/admin/members`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -25,27 +26,6 @@ const fetchUsers = async () => {
 };
 
 fetchUsers();
-// let users = [
-//   {
-//     id: 1,
-//     name: "john Doe",
-//     email: "johndoe@example.com",
-//     password: "johndoe123",
-//   },
-//   {
-//     id: 2,
-//     name: "jane Doe",
-//     email: "janedoe@example.com",
-//     password: "janedoe123",
-//   },
-//   {
-//     id: 3,
-//     name: "bob Smith",
-//     email: "bobsmith@example.com",
-//     password: "bobsmith123",
-//   },
-//   // add more users here
-// ];
 
 userSearchBtn.addEventListener("click", searchUsers);
 
@@ -81,7 +61,7 @@ function renderUserList(users) {
 renderUserList(users);
 
 const deleteMember = async (id) => {
-  const response = await fetch(`http://localhost:3000/admin/members${id}`, {
+  const response = await fetch(`${backendURL}/admin/members${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,

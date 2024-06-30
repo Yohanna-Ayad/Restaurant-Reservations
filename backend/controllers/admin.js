@@ -61,7 +61,7 @@ const adminController = {
         Price: req.body.Price,
         Discount: req.body.Discount,
         Description: req.body.Description,
-        Image: req.file.buffer,
+        // Image: req.file.buffer,
       };
       const result = await adminService.updatePlate(plateId, payload);
       if (result === "Plate Name is required!" || result === "Invalid updates!" || result === "All fields are required!" || result === "Price must be greater than 0") {

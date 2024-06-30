@@ -1,6 +1,5 @@
-const backendURL = "http://localhost:3000";
+const backendURL = "http://localhost:3000"
 const loginForm = document.getElementById("login-form");
-
 
 const loginAPI = async () =>{
     // e.preventDefault();

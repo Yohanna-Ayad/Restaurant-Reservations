@@ -1,5 +1,6 @@
+const backendURL = "http://localhost:3000"
 const GetOrders = async () => {
-    await fetch("http://localhost:3000/users/me/orders", {
+    await fetch(`${backendURL}/users/me/orders`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -47,7 +48,7 @@ const GetOrders = async () => {
                 button.textContent = "Done";
                 button.className = "btn btn-primary";
                 button.onclick = async () => {
-                    await fetch(`http://localhost:3000/users/me/orderItem/${item.id}`,{
+                    await fetch(`${backendURL}/users/me/orderItem/${item.id}`,{
                         method: "PATCH",
                         headers: {
                             "Content-Type": "application/json",

@@ -1,5 +1,4 @@
-const backendURL = "http://localhost:3000";
-
+const backendURL = "http://localhost:3000"
 const logoutAPI = async () => {
     const token = localStorage.getItem("token");
     const response = await fetch(`${backendURL}/logout`, {
