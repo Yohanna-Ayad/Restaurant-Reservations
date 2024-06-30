@@ -35,6 +35,7 @@ const addMeal = async () => {
         document.getElementById("Category").value = "";
         document.getElementById("Price").value = "";
         document.getElementById("Discount").value = "";
+        document.getElementById("Description").value = "";
         document.getElementById("Image").value = "";
     } else {
         alert(responseData.error);
