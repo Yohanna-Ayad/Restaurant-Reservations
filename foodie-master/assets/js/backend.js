@@ -180,8 +180,14 @@ const getFilteredRestaurants = async (category) => {
     });
 };
 
-var  cartQyt = 0;
-const cart = [];
+
+
+
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  if(!cart){
+    cart = [];
+  }
+let cartQyt = cart.length;
 
 const getPlates = async () => {
   const data = {
@@ -228,8 +234,9 @@ const getPlates = async () => {
         button.className = "btn food-menu-btn";
         button.textContent = "Order Now";
         button.onclick = function() {
+          cartQyt = JSON.parse(localStorage.getItem("cartQyt"));
           cartQyt++;
-          localStorage.setItem("cartQyt", cartQyt);
+          localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
           cartQtyElement.textContent = cartQyt;
           cart.push(element);
           console.log(cart)

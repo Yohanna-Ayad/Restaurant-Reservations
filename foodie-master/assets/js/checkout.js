@@ -1,32 +1,34 @@
 // cart
 let cart = JSON.parse(localStorage.getItem("cart"));
-if (!cart) {
-  cart = [];
-}
+let cartQyt = JSON.parse(localStorage.getItem("cartQyt"));
+// if (!cart) {
+//   cart = [];
+// }
 
-function saveToStorage() {
+function saveToStorage(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function removeFromCart(productName) {
-  const newCart = [];
-  cart.forEach((cartItem) => {
-    if (cartItem.productName !== productName) {
-      newCart.push(cartItem);
-    }
-  });
-    cart = newCart;
-    saveToStorage();
+  cart = JSON.parse(localStorage.getItem("cart"));
+  let newCart = cart.filter((cartItem)=> cartItem.PlateName != productName)
+  cartQyt = newCart.length;
+
+  localStorage.setItem("cart", JSON.stringify(newCart));
+  localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
+
 }
 
 
 let cartSummaryHTML = "";
 
 function updateBill() {
+  cart = JSON.parse(localStorage.getItem("cart"));
   let totalItems = 0;
   let beforeTax = 0,
     tax,
     total;
+
   cart.forEach((cartItem) => {
     totalItems++;
     beforeTax +=  cartItem.Price;
@@ -44,6 +46,7 @@ function updateBill() {
 }
 window.onload = () => {
   updateBill();
+
 };
 
 
@@ -56,7 +59,7 @@ cart.forEach((cartItem) => {
               <div class="product-name">${cartItem.PlateName}</div>
               <div class="product-price">$${cartItem.Price}</div>
               <div class="product-quantity">
-                <button class="delete-btn delete-quantity-link link-primary js-delete-link" data-product-name="${cartItem.PlateName}">
+                <button class="delete-btn delete-quantity-link link-primary js-delete-link" data_product="${cartItem.PlateName}">
                   Delete
                 </button>
               </div>
@@ -72,7 +75,7 @@ document.querySelector(".js-order-summary").innerHTML = cartSummaryHTML;
 
 document.querySelectorAll(".js-delete-link").forEach((link) => {
   link.addEventListener("click", () => {
-    const productName = link.dataset.PlateName;
+    const productName = link.attributes.data_product.value;
     removeFromCart(productName);
     const container = document.querySelector(".cart-item-container" );
     container.remove();
