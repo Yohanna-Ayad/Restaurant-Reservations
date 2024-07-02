@@ -215,7 +215,18 @@ const adminController = {
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
-  }
+  },
+  getOrders: async (req, res) => {
+    try {
+      const orders = await adminService.getOrders();
+      if (!orders) {
+        return res.status(404).send({ error: "No orders found" });
+      }
+      res.status(200).send({ message: "Orders found", orders });
+    } catch (error) {
+      res.status(400).send({ error: error.message });
+    }
+  },
 };
 
 module.exports = adminController;

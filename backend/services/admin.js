@@ -1,6 +1,8 @@
 const Sirv = require("../functions/Sirv");
 const User = require("../databse/user");
 const Plate = require("../databse/plate");
+const Orders = require("../databse/order");
+const OrderItem = require("../databse/OrderItem");
 const utilities = require("../functions/utils");
 
 const signupProcess = async ({ name, email, password, role, permission }) => {
@@ -247,6 +249,23 @@ const adminServices = {
       return "Plate not found";
     }
     return plate;
+  },
+  getOrders: async () => {  
+    const orders = await Orders.findAll();
+    const orderItems = await OrderItem.findAll({ where: { orderId: orders.map((order) => order.orderId) }});
+    const plateIds = orderItems.map((item) => item.PlateId);
+    const plates = await Plate.findAll({ where: { id: plateIds }});
+    const plateMap = {};
+    plates.forEach((plate) => {
+      plateMap[plate.id] = plate;
+    });
+    orderItems.forEach((item) => {
+      item.dataValues.plate = plateMap[item.PlateId];
+    });
+    orders.forEach((order) => {
+      order.dataValues.items = orderItems.filter((item) => item.orderId === order.orderId);
+    });
+    return orders;
   },
 };
 

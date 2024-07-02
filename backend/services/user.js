@@ -120,12 +120,20 @@ const userServices = {
     });
     return orders;
   },
-  completeOrder: async (id) => {
-    const order = await Order.findOne({ where: { orderId: id }});
-    order.status = "completed";
-    await order.save();
-    return order;
-  },
+  completeOrder: async (id, payload) => {
+    try {
+        const order = await Order.findOne({ where: { orderId: id }});
+        if (!order) {
+            throw new Error('Order not found');
+        }
+        order.status = payload.status;
+        await order.save();
+        return order;
+    } catch (error) {
+        console.error('Error updating order status:', error);
+        throw error;
+    }
+},
 };  
 
 module.exports = userServices;

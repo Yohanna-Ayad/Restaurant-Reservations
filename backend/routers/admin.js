@@ -40,4 +40,7 @@ router.delete("/admin/plate/:id",auth,adminController.deletePlate);
 //                      Get Plate By ID
 router.get("/admin/plate/:id",auth,adminController.getPlateById);
 
+//                      Get Orders History
+router.get("/admin/orders",auth,adminController.getOrders);
+
 module.exports = router;

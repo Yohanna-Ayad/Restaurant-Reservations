@@ -76,7 +76,10 @@ const userController = {
   },
   completeOrder: async (req, res) => {
     try {
-      const order = await userServices.completeOrder(req.params.id);
+      const order = await userServices.completeOrder(req.params.id, req.body);
+      if (order === "Order not found") {
+        return res.status(404).send({ error: order });
+      }
       res.send(order);
     } catch (error) {
       res.status(400).send(error.message);
