@@ -29,7 +29,4 @@ router.get("/users/me/orders", auth, userController.receiveOrders);
 //             Mark Order as Done
 router.patch("/users/me/orders/:id", auth, userController.completeOrder);
 
-//             Mark OrderList as Done
-router.patch("/users/me/orderItem/:id", auth, userController.completeOrderList);
-
 module.exports = router;

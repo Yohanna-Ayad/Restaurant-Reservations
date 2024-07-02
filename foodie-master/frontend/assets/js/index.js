@@ -1,3 +1,8 @@
+window.onload = ()=>{
+    let cartQyt =JSON.parse(localStorage.getItem("cartQyt"));
+    let cartQtyElement = document.querySelector(".js-cart-quantity")
+    cartQtyElement.innerHTML = cartQyt;
+}
 function getQueryParams() {
     const params = {};
     const queryString = window.location.search.substring(1);
@@ -17,15 +22,18 @@ const queryParams = getQueryParams();
 // Set each query parameter in local storage
 for (const key in queryParams) {
     if (queryParams.hasOwnProperty(key)) {
+        if (key === "id")
+            localStorage.setItem("tableId", queryParams[key]);
+        else
         localStorage.setItem(key, queryParams[key]);
     }
 }
 
 // For demonstration purposes, let's log the local storage contents
-console.log("Local Storage Contents:");
+// console.log("Local Storage Contents:");
 for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i);
-    console.log(`${key}: ${localStorage.getItem(key)}`);
+    // console.log(`${key}: ${localStorage.getItem(key)}`);
 }
 
 getQueryParams()

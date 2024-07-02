@@ -76,13 +76,14 @@ const getCategories = async () => {
 window.onclick = function (event) {
   const category = event.target.id;
   console.log(category);
+  console.log({ category : category })
   if (category) {
     getFilteredRestaurants(category);
   }
 };
 
 const getFilteredRestaurants = async (category) => {
-  console.log(category);
+  console.log(category)
   const data = {
     offset: 0,
     limit: 10,
@@ -98,6 +99,8 @@ const getFilteredRestaurants = async (category) => {
   })
     .then((response) => {
       if (response.ok) {
+        console.log("from getFilteredRestaurants")
+        console.log(response.json());
         return response.json();
       } else {
         console.error(response.json());
@@ -127,6 +130,14 @@ const getFilteredRestaurants = async (category) => {
         const button = document.createElement("button");
         button.className = "btn food-menu-btn";
         button.textContent = "Order Now";
+        button.onclick = function() {
+          cart.push(element);
+          console.log(cart)
+          localStorage.setItem("cart", JSON.stringify(cart));
+          count++;
+          console.log(count)
+          localStorage.setItem("count", count);
+        };
         const wrapper = document.createElement("div");
         wrapper.className = "wrapper";
         const category = document.createElement("p");
@@ -197,6 +208,7 @@ const getPlates = async () => {
   })
     .then((response) => {
       if (response.ok) {
+
         return response.json();
       } else {
         console.error(response.json());
@@ -204,10 +216,13 @@ const getPlates = async () => {
       }
     })
     .then((data) => {
+      console.log("button")
+
       console.log(data);
       document.getElementById("food-menu-list").innerHTML = "";
 
       data.forEach((element) => {
+
         const list = document.createElement("li");
         const card = document.createElement("div");
         card.className = "food-menu-card";
@@ -226,9 +241,10 @@ const getPlates = async () => {
         const button = document.createElement("button");
         button.className = "btn food-menu-btn";
         button.textContent = "Order Now";
+        var orders = [];
         button.onclick = function() {
-          cart.push(element);
-          console.log(cart)
+          orders.push(element);
+          console.log(orders)
           localStorage.setItem("cart", JSON.stringify(cart));
           count++;
           console.log(count)

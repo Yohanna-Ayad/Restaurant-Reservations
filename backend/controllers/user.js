@@ -82,15 +82,6 @@ const userController = {
       res.status(400).send(error.message);
     }
   },
-  completeOrderList: async (req, res) => {
-    try {
-      console.log(req.params.id);
-      const orders = await userServices.completeOrderList(req.params.id);
-      res.send(orders);
-    } catch (error) {
-      res.status(400).send(error.message);
-    }
-  },
 };
 
 module.exports = userController;

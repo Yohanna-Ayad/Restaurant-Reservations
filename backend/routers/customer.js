@@ -26,5 +26,7 @@ router.get("/categories", customerController.getCategories);
 router.post("/category", customerController.getPlatesByCategory);
 
 
+
+
 module.exports = router;
 

@@ -36,10 +36,7 @@
   <link rel="preload" as="image" href="./assets/images/hero-bg.jpg">
 
 </head>
-
 <body id="top" onload="getCategories()">
-  <script src="./frontend/assets/js/index.js"></script>
-
   <header class="header" data-header>
     <div class="container">
       <div class="header-container">
@@ -66,7 +63,7 @@
           <a class="cart-link header-link" href="checkout.html">
             <ion-icon class="cart-icon search-btn" name="cart-outline"></ion-icon>
             <div class="cart-quantity js-cart-quantity" id="cart-icon">0</div>
-          </a> 
+          </a>
 
           <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
             <span class="line top"></span>
@@ -119,22 +116,33 @@
 
           <ul class="fiter-list" id="fiter-list">
 
+            <li>
+              <button class="filter-btn  active">All</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Pizza</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Burger</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Drinks</button>
+            </li>
+
+            <li>
+              <button class="filter-btn">Sandwich</button>
+            </li>
           </ul>
 
           <ul class="food-menu-list" id="food-menu-list">
 
           </ul>
 
-
         </div>
       </section>
-
-
-
-
-
-
-
     </article>
   </main>
 
@@ -260,10 +268,9 @@
   <!-- 
     - custom js link
   -->
-  <script src="./assets/js/script.js" ></script>
   <!-- <script src="./assets/js/backend.js"></script> -->
 
-  
+
 
 
 
@@ -272,8 +279,9 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-  <script type="module"  src="./assets/js/backend.js"></script>
-   <script  type="module" src="./assets/js/index.js"></script>
+  <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/backend.js"></script>
+  <script src="./frontend/assets/js/index.js"></script>
 
 
 

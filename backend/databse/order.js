@@ -9,6 +9,7 @@ const Order = sequelize.define('Order', {
   },
   status: {
     type: DataTypes.ENUM('pending', 'completed'),
+    defaultValue: 'pending',
     allowNull: false,
   },
   tableId: {

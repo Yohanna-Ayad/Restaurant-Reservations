@@ -18,10 +18,6 @@ const OrderItem = sequelize.define('OrderItem', {
     allowNull: false,
     
   },
-  status: {
-    type: DataTypes.ENUM('pending', 'completed'),
-    defaultValue: 'pending',
-  },
 }, {
   sequelize,
   modelName: 'OrderItem',

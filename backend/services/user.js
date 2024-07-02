@@ -126,12 +126,6 @@ const userServices = {
     await order.save();
     return order;
   },
-  completeOrderList: async (id) => {
-    const order_item = await OrderItem.findOne({ where: { id }});
-    order_item.status = "completed";
-    await order_item.save();
-    return order_item;
-  },
 };  
 
 module.exports = userServices;

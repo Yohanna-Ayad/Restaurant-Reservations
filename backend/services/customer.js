@@ -1,4 +1,6 @@
 const Plate = require("../databse/plate");
+const Order_items = require("../databse/OrderItem");
+const Order = require("../databse/order");
 
 const customerService = {
   getPlates: async (payload) => {
@@ -15,13 +17,23 @@ const customerService = {
     return plates;
   },
   addToCart: async (payload) => {
-    const plate = await Plate.findOne({
-      where: { PlateName: payload.PlateName },
+    var plates = [];
+    const order = await Order.create({
+      tableId: payload.tableId,
+      status: "pending",
     });
-    if (!plate) {
-      return "Plate not found!";
-    }
-    return plate;
+
+    payload.cart.forEach(async element => {
+      const plate = await element.plate;
+      await Order_items.create({
+        quantity: element.Quantity,
+        PlateId: plate.id,
+        orderId: order.orderId,
+      });
+    });
+    
+    return "Plate added to cart!";
+
   },
   getCategories: async () => {
     const categories = await Plate.findAll({

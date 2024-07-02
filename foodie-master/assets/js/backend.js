@@ -1,86 +1,98 @@
-const backendURL = "http://localhost:3000"
+const backendURL = "http://localhost:3000";
 const getCategories = async () => {
-  const response = await fetch( `${backendURL}/categories`, {
+  if (!localStorage.getItem("cart")) {
+    localStorage.setItem("cart", JSON.stringify([]));
+  }
+  const response = await fetch(`${backendURL}/categories`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   })
-    .then((response) => {
+    .then(async (response) => {
       if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Failed to fetch Categories");
-      }
-    })
-    .then((data) => {
-      console.log(data);
-      const categorySelection = document.getElementById("fiter-list");
-      categorySelection.innerHTML = "";
-      const list1 = document.createElement("li");
-      list1.style =
-        "display: flex; flex-wrap: wrap; width:100px justify-content: center; gap: 10px;";
-      const button1 = document.createElement("button");
-      button1.style =
-        "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));background-color: var(--deep-saffron);"
-      button1.onclick = function() {
-        getPlates()
-        const buttons = document.querySelectorAll("button");
-        buttons.forEach((btn) => {
-          btn.style.backgroundColor = "var(--white)";
-          btn.style.color = "var(--color, var(--rich-black-fogra-29))";
-          btn.style.borderColor = "var(--border-color, var(--cultured))";
-
-        });
-        button1.style.backgroundColor = "var(--deep-saffron)";
-        button1.style.color = "var(--white)";
-        button1.style.borderColor = "var(--deep-saffron)";
-      };
-      
-      button1.id = "all";
-      button1.textContent = "All";
-
-      list1.appendChild(button1);
-      categorySelection.appendChild(list1);
-
-      data.forEach((element) => {
-        const list = document.createElement("li");
-        list.style =
-          "display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;";
-        const button = document.createElement("button");
-        button.style =
-          "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));";
-        button.onclick = function() {
+        const data = await response.json();
+        // console.log(await response.json());
+        console.log(data);
+        const categorySelection = document.getElementById("fiter-list");
+        categorySelection.innerHTML = "";
+        const list1 = document.createElement("li");
+        list1.style =
+          "display: flex; flex-wrap: wrap; width:100px justify-content: center; gap: 10px;";
+        const button1 = document.createElement("button");
+        button1.style =
+          "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));background-color: var(--deep-saffron);";
+        button1.onclick = function () {
+          getPlates();
           const buttons = document.querySelectorAll("button");
           buttons.forEach((btn) => {
             btn.style.backgroundColor = "var(--white)";
             btn.style.color = "var(--color, var(--rich-black-fogra-29))";
             btn.style.borderColor = "var(--border-color, var(--cultured))";
           });
-          button.style.backgroundColor = "var(--deep-saffron)";
-          button.style.color = "var(--white)";
-          button.style.borderColor = "var(--deep-saffron)";
+          button1.style.backgroundColor = "var(--deep-saffron)";
+          button1.style.color = "var(--white)";
+          button1.style.borderColor = "var(--deep-saffron)";
         };
-        button.id = element;
-        button.textContent = element;
-        console.log(button);
-        // button.onclick()
-        list.appendChild(button);
-        categorySelection.appendChild(list);
-      });
+
+        button1.id = "all";
+        button1.textContent = "All";
+
+        list1.appendChild(button1);
+        categorySelection.appendChild(list1);
+
+        data.forEach((element) => {
+          const list = document.createElement("li");
+          list.style =
+            "display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;";
+          const button = document.createElement("button");
+          button.style =
+            "background-color: var(--white); color: var(--color, var(--rich-black-fogra-29)); font-family: var(--ff-rubik); font-weight: var(--fw-500); padding: 5px 20px; border: 1px solid var(--border-color, var(--cultured));";
+          button.onclick = function () {
+            const buttons = document.querySelectorAll("button");
+            buttons.forEach((btn) => {
+              btn.style.backgroundColor = "var(--white)";
+              btn.style.color = "var(--color, var(--rich-black-fogra-29))";
+              btn.style.borderColor = "var(--border-color, var(--cultured))";
+            });
+            button.style.backgroundColor = "var(--deep-saffron)";
+            button.style.color = "var(--white)";
+            button.style.borderColor = "var(--deep-saffron)";
+          };
+          button.id = element;
+          button.textContent = element;
+          console.log(button);
+          // button.onclick()
+          list.appendChild(button);
+          categorySelection.appendChild(list);
+        });
+      } else {
+        throw new Error("Failed to fetch Categories");
+      }
     })
     .catch((error) => {
       console.error(error);
     });
 };
+getCategories();
 
 window.onclick = function (event) {
   const category = event.target.id;
-  console.log(category);
+  // console.log(category);
   if (category) {
     getFilteredRestaurants(category);
   }
 };
+
+let cart = JSON.parse(localStorage.getItem("cart"));
+if (!cart) {
+  cart = [];
+}
+let cartQyt = 0;
+cart.forEach((cartItem) => {
+  cartQyt += cartItem.Quantity;
+});
+localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
 
 const getFilteredRestaurants = async (category) => {
   console.log(category);
@@ -128,6 +140,50 @@ const getFilteredRestaurants = async (category) => {
         const button = document.createElement("button");
         button.className = "btn food-menu-btn";
         button.textContent = "Order Now";
+
+        button.onclick = function () {
+          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+          const localStorageCart =
+            JSON.parse(localStorage.getItem("cart")) || [];
+          console.log(localStorageCart);
+
+          if (localStorageCart.length === 0) {
+            console.log("empty");
+            const cartItem = {
+              plate: element,
+              Quantity: 1,
+            };
+            cartQyt++;
+            localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
+            localStorage.setItem("cart", JSON.stringify([cartItem]));
+            // cartQtyElement.textContent = 1;
+            return;
+          }
+
+          let itemFound = false;
+          localStorageCart.forEach((cartItem) => {
+            if (cartItem.plate.id === element.id) {
+              cartItem.Quantity++;
+              itemFound = true;
+            }
+          });
+
+          if (!itemFound) {
+            const cartItem = {
+              plate: element,
+              Quantity: 1,
+            };
+            localStorageCart.push(cartItem);
+          }
+
+          cartQyt++;
+          localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
+          localStorage.setItem("cart", JSON.stringify(localStorageCart));
+
+          // cartQtyElement.textContent = localStorageCart.length;
+        };
+
         const wrapper = document.createElement("div");
         wrapper.className = "wrapper";
         const category = document.createElement("p");
@@ -180,15 +236,6 @@ const getFilteredRestaurants = async (category) => {
     });
 };
 
-
-
-
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  if(!cart){
-    cart = [];
-  }
-let cartQyt = cart.length;
-
 const getPlates = async () => {
   const data = {
     offset: 0,
@@ -211,9 +258,9 @@ const getPlates = async () => {
       }
     })
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       document.getElementById("food-menu-list").innerHTML = "";
-      let cartQtyElement = document.querySelector(".js-cart-quantity")
+      // let cartQtyElement = document.querySelector(".js-cart-quantity");
       data.forEach((element) => {
         const list = document.createElement("li");
         const card = document.createElement("div");
@@ -233,14 +280,47 @@ const getPlates = async () => {
         const button = document.createElement("button");
         button.className = "btn food-menu-btn";
         button.textContent = "Order Now";
-        button.onclick = function() {
-          cartQyt = JSON.parse(localStorage.getItem("cartQyt"));
+        button.onclick = function () {
+          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+          const localStorageCart =
+            JSON.parse(localStorage.getItem("cart")) || [];
+          console.log(localStorageCart);
+
+          if (localStorageCart.length === 0) {
+            console.log("empty");
+            const cartItem = {
+              plate: element,
+              Quantity: 1,
+            };
+            cartQyt++;
+            localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
+            localStorage.setItem("cart", JSON.stringify([cartItem]));
+            // cartQtyElement.textContent = 1;
+            return;
+          }
+
+          let itemFound = false;
+          localStorageCart.forEach((cartItem) => {
+            if (cartItem.plate.id === element.id) {
+              cartItem.Quantity++;
+              itemFound = true;
+            }
+          });
+
+          if (!itemFound) {
+            const cartItem = {
+              plate: element,
+              Quantity: 1,
+            };
+            localStorageCart.push(cartItem);
+          }
+
           cartQyt++;
           localStorage.setItem("cartQyt", JSON.stringify(cartQyt));
-          cartQtyElement.textContent = cartQyt;
-          cart.push(element);
-          console.log(cart)
-          localStorage.setItem("cart", JSON.stringify(cart));
+          localStorage.setItem("cart", JSON.stringify(localStorageCart));
+
+          // cartQtyElement.textContent = localStorageCart.length;
         };
         const wrapper = document.createElement("div");
         wrapper.className = "wrapper";
@@ -293,6 +373,5 @@ const getPlates = async () => {
       console.error(error);
     });
 };
-
 
 getPlates();
