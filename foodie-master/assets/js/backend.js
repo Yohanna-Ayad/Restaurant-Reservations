@@ -1,4 +1,4 @@
-const backendURL = "http://192.168.1.6:3000";
+const backendURL = "http://192.168.1.5:3000";
 const getCategories = async () => {
   if (!localStorage.getItem("cart")) {
     localStorage.setItem("cart", JSON.stringify([]));

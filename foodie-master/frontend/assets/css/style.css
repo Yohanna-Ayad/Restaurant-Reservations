@@ -464,79 +464,6 @@ body.active { overflow: hidden; }
 
 .navbar-link:is(:hover, :focus) { color: var(--dark-orange); }
 
-
-
-
-
-
-/*-----------------------------------*\
-  #SEARCH BOX
-\*-----------------------------------*/
-
-.search-container {
-  position: fixed;
-  top: -60%;
-  left: 0;
-  width: 100%;
-  height: 110%;
-  background-color: var(--black_95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-inline: 15px;
-  z-index: 5;
-  visibility: hidden;
-  opacity: 0;
-  transition: var(--transition-2);
-}
-
-.search-container.active {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(50%);
-}
-
-.search-box {
-  position: relative;
-  width: 100%;
-  max-width: 500px;
-}
-
-.search-input {
-  color: var(--gainsboro);
-  font-size: 3rem;
-  padding: 20px 15px;
-  padding-inline-end: 70px;
-}
-
-.search-input::placeholder { color: var(--spanish-gray); }
-
-.search-input::-webkit-search-cancel-button { display: none; }
-
-.search-submit {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 15px;
-  color: var(--onyx);
-  font-size: 4rem;
-  transition: var(--transition-1);
-}
-
-.search-submit:is(:hover, :focus) { color: var(--gainsboro); }
-
-.search-close-btn {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  cursor: url("../images/close.png"), auto;
-}
-
-
-
-
-
-
 /*-----------------------------------*\
   #HERO
 \*-----------------------------------*/
@@ -593,193 +520,24 @@ body.active { overflow: hidden; }
   color: var(--white);
 }
 
-/* .hero .btn { margin-inline: auto; } */
-/* 
-.hero .btn:is(:hover, :focus) {
-  background-color: var(--white);
-  color: var(--white);
-} */
 
 /*-----------------------------------*\
-  #Order List or Food Menu
+  #Order List 
 \*-----------------------------------*/
-.food-menu {
-  background-color: var(--isabelline);
-  text-align: center;
-}
 
-.food-menu .section-title { margin-block: 10px 20px; }
-
-.food-menu .section-text {
-  max-width: 44ch;
-  margin-inline: auto;
-  margin-block-end: 30px;
-}
-.product-spacer {
-  flex: 1;
-}
 
 .order-list {
   background-color: var(--isabelline);
   text-align: center;
 }
 
-.order-list .section-text {
-  max-width: 44ch;
-  margin-inline: auto;
-  margin-block-end: 30px;
-}
-.cart-item {
-
-  display: grid;
-  /* 100px 1fr 1fr; means the 2nd and 3rd column will
-     take up half the remaining space in the grid
-     (they will divide up the remaining space evenly). */
-  grid-template-columns: 100px 1fr 1fr;
-  column-gap: 30px;
-  padding: 15px 10px;
-}
-
-@media (max-width: 2000px) {
-  .cart-item {
-    grid-template-columns: 100px 2fr;
-    row-gap: 30px;
-    
-  }
-}
-
 .product-image {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  /* border-radius: 50%; */
   margin-left: auto;
   margin-right: auto;
 }
-
-
-
-
-.fiter-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-block-end: 40px;
-}
-
-.filter-btn {
-  background-color: var(--white);
-  color: var(--color, var(--rich-black-fogra-29));
-  font-family: var(--ff-rubik);
-  font-weight: var(--fw-500);
-  padding: 5px 20px;
-  border: 1px solid var(--border-color, var(--cultured));
-}
-
-.filter-btn.active {
-  background-color: var(--deep-saffron);
-  --color: var(--white);
-  --border-color: var(--deep-saffron);
-}
-
-.food-menu-list {
-  display: grid;
-  gap: 30px;
-}
-
-.food-menu-card {
-  background-color: var(--white);
-  padding: 40px;
-  box-shadow: var(--shadow-2);
-}
-
-.food-menu-card:focus-within { outline: 1px auto -webkit-focus-ring-color; }
-
-
-
-.food-menu-btn {
-  position: absolute;
-  top: calc(50% + 15px);
-  left: 50%;
-  transform: translate(-50%, 0);
-  min-width: max-content;
-  --bg-color: var(--cinnabar);
-  width: 60%;
-  --height: 40px;
-  --padding-inline: 20px;
-  opacity: 0;
-  transition: var(--transition-2);
-}
-
-.food-menu-btn:is(:hover, :focus) { --bg-color: var(--deep-saffron); }
-
-.food-menu-card:is(:hover, :focus-within) .food-menu-btn {
-  transform: translate(-50%, -50%);
-  opacity: 1;
-}
-
-.food-menu-card .order-number-text{
-  color: var(--black);
-  font-family: var(--ff-rubik);
-  font-weight: var(--fw-500);
-  text-align: left;
-  margin-left: 20px;
-  margin-top: -20px;
-
-}
-.food-menu-card .wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-block: 20px 10px;
-}
-
-.food-menu-card .category {
-  font-family: var(--ff-rubik);
-  font-weight: var(--fw-500);
-}
-
-
-.food-menu-card .price-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  font-family: var(--ff-rubik);
-  font-weight: var(--fw-600);
-}
-
-.food-menu-card .price-text {
-  font-family: var(--ff-rubik);
-  font-weight: var(--fw-500);
-  color: var(--cinnabar);
-  text-align: left;
-}
-.food-menu-card .card-title {
-  font-family: var(--ff-rubik);
-  font-weight: var(--fw-500);
-  color: var(--black);
-  text-align: left;
-}
-.product-quantity span{
-  font-family: var(--ff-rubik);
-  text-align: left;
-}
-
-
-
-
-.order-details p{
-  display: inline;
-  margin: 5px;
-}
-
-.order-details .order-total-price{
-  color: var(--black);
-  font-weight: var(--fw-500);
-  padding-left: 50px;
-}
-
-
 
 .order-status-complete ,
 .order-status-cancle{
@@ -824,152 +582,6 @@ body.active { overflow: hidden; }
     background-color: var(--cinnabar);
     color: var(--white);
   }
-
-.food-menu-card .price { color: var(--deep-saffron); }
-
-.food-menu-card .del { color: var(--gray-x-11-gray); }
-
-
-
-
-
-
-/*-----------------------------------*\
-  #FOOTER
-\*-----------------------------------*/
-
-.footer { overflow: hidden; }
-
-.footer-top {
-  position: relative;
-  padding-block: 120px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: bottom;
-  border-block-end: 2px solid var(--independence_30);
-}
-
-.footer-top::after {
-  content: url(../images/delivery-boy.svg);
-  position: absolute;
-  bottom: -11px;
-  left: -160px;
-  width: 160px;
-  animation: running-cycle 20s linear infinite;
-}
-
-@keyframes running-cycle {
-  0% { left: -160px; }
-  100% { left: 100%; }
-}
-
-.footer-top .container {
-  display: grid;
-  gap: 30px;
-}
-
-.footer .logo {
-  color: var(--rich-black-fogra-29);
-  font-size: 3.2rem;
-}
-
-.footer-text { margin-block: 15px 25px; }
-
-.social-list {
-  display: flex;
-  gap: 5px;
-}
-
-.social-link {
-  background-color: var(--dark-orange);
-  color: var(--white);
-  font-size: 1.5rem;
-  padding: 10px;
-  transition: var(--transition-1);
-}
-
-.social-link:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
-
-.footer-list-title {
-  position: relative;
-  max-width: max-content;
-  color: var(--rich-black-fogra-29);
-  font-family: var(--ff-rubik);
-  font-size: var(--fs-3);
-  font-weight: var(--fw-600);
-  letter-spacing: -1px;
-  margin-block-end: 20px;
-}
-
-.footer-list-title::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: calc(100% + 15px);
-  background-color: var(--deep-saffron);
-  width: 40px;
-  height: 4px;
-  border-inline-end: 5px solid var(--deep-saffron);
-  box-shadow: inset -5px 0 0 var(--white);
-}
-
-.footer-list > li:not(:last-child) { margin-block-end: 15px; }
-
-.footer-list address { max-width: 20ch; }
-
-.footer-form {
-  background-color: var(--white);
-  padding: 30px;
-  border: 1px solid var(--cultured);
-  box-shadow: var(--shadow-2);
-}
-
-.input-wrapper {
-  display: grid;
-  gap: 10px;
-  margin-block-end: 10px;
-}
-
-.input-field {
-  color: var(--spanish-gray);
-  font-size: var(--fs-4);
-  border: 1px solid var(--cultured);
-  padding: 8px 12px;
-}
-
-.input-field::placeholder { color: var(--spanish-gray); }
-
-.input-field::-webkit-calendar-picker-indicator { opacity: 0.5; }
-
-textarea.input-field {
-  min-height: 50px;
-  max-height: 150px;
-  height: 100px;
-  resize: vertical;
-  margin-block-end: 10px;
-}
-
-.footer-form .btn {
-  font-size: var(--fs-15);
-  --height: 40px;
-  --padding-inline: 25px;
-}
-
-.footer-form .btn:is(:hover, :focus) { background-color: var(--rich-black-fogra-29); }
-
-.footer-bottom {
-  padding-block: 20px;
-  text-align: center;
-}
-
-.copyright-link { display: inline-block; }
-
-.copyright-link:is(:hover, :focus) { text-decoration: underline; }
-
-
-
-
 
 /*-----------------------------------*\
   #BACK TO TOP
@@ -1187,101 +799,6 @@ textarea.input-field {
     z-index: -1;
   }
 
-
-
-  /**
-   * ABOUT
-   */
-
-  .about .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
-
-  .about { text-align: left; }
-
-  .about .section-title { margin-block-start: 0; }
-
-  .about :is(.section-title, .btn) { margin-inline: 0; }
-
-  .about-item { justify-content: flex-start; }
-
-
-
-  /**
-   * FOOD MENU
-   */
-
-  .food-menu-list { grid-template-columns: 1fr 1fr; }
-
-  .food-menu-card :is(.wrapper, .price-wrapper) { justify-content: flex-start; }
-
-  .food-menu-card .card-title { text-align: left; }
-
-
-
-  /**
-   * CTA
-   */
-
-  .cta .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 30px;
-  }
-
-  .cta { text-align: left; }
-
-  .cta :is(.section-title, .btn) { margin-inline: 0; }
-
-  .cta-img { transform: scale(1.3) translate(90px, 20px); }
-
-
-
-  /**
-   * DELIVERY
-   */
-
-  .delivery .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 50px;
-  }
-
-
-
-  /**
-   * BANNER
-   */
-
-  .banner-list { grid-template-columns: repeat(4, 1fr); }
-
-  .banner-lg {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
-  }
-
-  .banner-md {
-    grid-column: 3 / 5;
-    grid-row: 2 / 3;
-    height: 220px;
-  }
-
-
-
-  /**
-   * BLOG
-   */
-
-  .blog-list { grid-template-columns: 1fr 1fr; }
-
-  .blog-card { height: 100%; }
-
-
-
   /**
    * FOOTER
    */
@@ -1289,10 +806,6 @@ textarea.input-field {
   .input-wrapper { grid-template-columns: 1fr 1fr; }
 
 }
-
-
-
-
 
 /**
  * responsive for larger than 992px screen
@@ -1386,62 +899,6 @@ textarea.input-field {
 
   .hero-img-bg { transform: scale(1.4) translate(20px, -20px); }
 
-
-
-  /**
-   * FOOD MENU
-   */
-
-  .food-menu-list { grid-template-columns: repeat(3, 1fr); }
-
-  .food-menu-card { height: 100%; }
-
-
-
-  /**
-   * CTA
-   */
-
-  .cta-img { transform: scale(1.4) translate(20px, 40px); }
-
-  .cta-banner .abs-img { left: -50px; }
-
-  :is(.cta, .delivery) .section-title { line-height: 1.2; }
-
-
-
-  /**
-   * BANNER
-   */
-
-  .banner-lg .banner-title {
-    --fs-1: 3.6rem;
-    letter-spacing: -2px;
-  }
-
-  :is(.banner-md, .banner-sm) .banner-title,
-  .banner-lg .banner-subtitle { --fs-2: 3.2rem; }
-
-
-
-  /**
-   * TESTIMONIALS
-   */
-
-  .testi-list { padding-block-end: 0; }
-
-
-
-  /**
-   * BLOG
-   */
-
-  .blog-list { grid-template-columns: repeat(3, 1fr); }
-
-  .blog-card .card-title { --fs-3: 2.2rem; }
-
-
-
   /**
    * FOOTER
    */
@@ -1486,41 +943,6 @@ textarea.input-field {
    */
 
   .hero { min-height: 770px; }
-
-
-
-  /**
-   * PROMO
-   */
-  
-  .promo .promo-item { min-width: calc(25% - 7.5px); }
-
-
-
-  /**
-   * ABOUT
-   */
-
-  .about .container { gap: 60px; }
-
-
-
-  /**
-   * CTA
-   */
-
-  .cta { --section-padding: 60px; }
-
-  .cta .section-title { max-width: 18ch; }
-
-
-
-  /**
-   * BANNER
-   */
-
-  .banner-md .banner-item-content { left: 55%; }
-
 
 
   /**
