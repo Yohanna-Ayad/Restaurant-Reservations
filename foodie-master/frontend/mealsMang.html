@@ -36,7 +36,7 @@
 
         <div class="header-btn-group">
 
-          <button class="btn">
+          <button class="login-btn">
             <a href="addMeal.html">Add Meal</a>
           </button>
 
@@ -58,45 +58,11 @@
       -->
 
       <section class="section order-list" id="orders-history">
-        <h2 class="h2 section-title">
+        <h2 class="section-title">
           Meals <span class="span">Mangement</span>
         </h2>
 
         <div class="container">
-
-          <!-- <p class="section-subtitle"></p> -->
-
-
-
-          <!-- <p class="section-text">
-            
-          </p>  -->
-
-          <!-- <ul class="fiter-list" id="fiter-list">
-
-            <li>
-              <button class="filter-btn  active">All</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Pizza</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Burger</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Drinks</button>
-            </li>
-
-            <li>
-              <button class="filter-btn">Sandwich</button>
-            </li>
-
-          </ul> -->
-
-
 
           <section class="user-search-bar">
             <div class="user-search-bar">
@@ -124,15 +90,15 @@
                 <!-- user list will be rendered here -->
               </tbody>
             </table>
-            <div style="text-align: center; display: flex; justify-content: space-between; margin-inline: 550px;"
-              id="roomingButtons">
-              <button style="background-color: azure; width: 30px; text-justify: auto;"
-                onclick="getPrevoiusPage()">-</button>
-              <p id="pageCount">1</p>
-              <button style="background-color: azure; width: 30px; text-justify: auto;"
-                onclick="getNextPage()">+</button>
+            <section>
+      
+              <div class="pages"  id="roomingButtons">
+              <button class="btn prevBtn" onclick="getPrevoiusPage()"> << PREV </button>
+              <p class="pageCount" id="pageCount">1</p>
+              <button class="btn nextBtn" onclick="getNextPage()"> NEXT >> </button>
             </div>
-          </section>
+            
+            </section>
         </div>
       </section>
     </article>

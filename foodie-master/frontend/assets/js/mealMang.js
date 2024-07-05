@@ -1,15 +1,16 @@
 const backendURL = "http://localhost:3000"// script.js
 const searchInput = document.getElementById('user-search-input');
-const userSearchBtn = document.getElementById('user-search-btn');
+const mealSearchBtn = document.getElementById('user-search-btn');
 const mealTableBody = document.getElementById('user-table-body');
 
 const token = localStorage.getItem('token');
 // 
 // var offset = 0;
 
-
+const meals = [];
 var offset = 0;
-const meals = fetch(`${backendURL}/plates`, {
+const fetchMeals  = async () => { 
+    const response = await fetch(`${backendURL}/plates`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',
@@ -19,33 +20,33 @@ const meals = fetch(`${backendURL}/plates`, {
         limit: 10,
         offset: offset
     })  
-}).then(async(response) =>{
-    const data = await response.json();
-    console.log(data);
-    renderUserList(data);
-}).catch(error => {
-    console.error(error);
-});
+})
+const responseData = await response.json();
+console.log(responseData);
+if (response.ok) {
+  meals.push(...responseData);
+  renderMealList(meals);
+} else {
+  alert(responseData.error);
+}
+};
+
+fetchMeals();
 
 
-// let meals = [
-//     { id:1, img: "https://johan22.sirv.com/ca779719-6931-444a-bb90-c0a5c93b480c", plateName: 'Spaghetti Carbonara', Category: 'Pasta',price:"12.99" ,description:"Classic Italian pasta dish made with eggs, cheese, pancetta, and black pepper."},
-//     { id:2, img:"https://johan22.sirv.com/7e01933d-31ca-4e66-91ff-d939251c2079", plateName: 'Chicken Tikka Masala', Category: 'Curry' ,price:"14.99",description:"Creamy and flavorful Indian curry dish made with marinated chicken, tomatoes, and spices."},
-//     { id:3, img: "https://johan22.sirv.com/7b3c8e5a-928b-4d28-a8ea-c9a29c1d8a75", plateName: 'Caesar Salad', Category: 'Salad' ,price:" 8.99" ,description:"Classic salad made with romaine lettuce, croutons, Parmesan cheese, and Caesar dressing."},
-//     // add more users here
-// ];
+mealSearchBtn.addEventListener('click', searchMeals);
 
-userSearchBtn.addEventListener('click', searchUsers);
-
-function searchUsers() {
+function searchMeals() {
     const searchTerm = searchInput.value.trim().toLowerCase();
     const filteredMeals = meals.filter(meal => {
-        return meal.PlateName.toLowerCase().includes(searchTerm) || meal.Category.toLowerCase().includes(searchTerm);
+        return(
+            meal.PlateName.toLowerCase().includes(searchTerm) || 
+            meal.Category.toLowerCase().includes(searchTerm));
     });
-    renderUserList(filteredMeals);
+    renderMealList(filteredMeals);
 }
 
-function renderUserList(meals) {
+function renderMealList(meals) {
     mealTableBody.innerHTML = '';
     meals.forEach(meal => {
         const row = document.createElement('tr');
@@ -68,22 +69,7 @@ function renderUserList(meals) {
     });
 }
 
-renderUserList(meals);
-
-// mealTableBody.addEventListener('click', deleteUser);
-// mealTableBody.addEventListener('click', updatePlate);
-
-// function deleteUser(event) {
-//     if (event.target.classList.contains('delete-btn')) {
-//         const userId = event.target.dataset.userId;
-//         const index = meals.findIndex(meal => meal.id === parseInt(userId));
-//         if (index !== -1) {
-//             meals.splice(index, 1);
-//             renderUserList(meals);
-//         }
-//     }
-// }
-
+renderMealList(meals);
 
 
 function getPrevoiusPage() {
@@ -110,7 +96,7 @@ function getPrevoiusPage() {
             return;
         }
         document.getElementById('pageCount').innerHTML = document.getElementById('pageCount').innerHTML - 1;
-        renderUserList(data);
+        renderMealList(data);
     }).catch(error => {
         console.error(error);
     });
@@ -137,7 +123,7 @@ function getNextPage() {
         }
         document.getElementById('pageCount').innerHTML = offset/10 + 1;
 
-        renderUserList(data);
+        renderMealList(data);
     }).catch(error => {
         console.error(error);
     });

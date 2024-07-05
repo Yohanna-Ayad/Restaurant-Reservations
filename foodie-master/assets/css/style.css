@@ -402,14 +402,14 @@ body.active { overflow: hidden; }
 .search-btn ion-icon { --ionicon-stroke-width: 50px; }
 
 .cart-quantity{
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   background-color: var(--dark-orange);
   color: var(--white);
   margin: auto;
   text-align: center;
-  padding: 2px;
+  padding: 5px 0px;
 }
 .nav-toggle-btn {
   display: grid;
@@ -1791,4 +1791,40 @@ textarea.input-field {
 
   .footer-top .container { grid-template-columns: 1.4fr 1fr 1fr 1.6fr; }
 
+}
+.pages{
+  height: 40px;
+  display: flex; 
+  justify-content: space-around; 
+  background-color: var(--champagne-pink_20);
+  /* margin-top: 60px; */
+  text-align: center;
+  padding: 20px;
+}
+.prevBtn,
+.nextBtn{
+  width: 130px;
+  height: 40px ;
+  color: var(--white);
+  cursor: pointer;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px  solid  var(--gainsboro);
+  background-color: var(--white);
+  color: var(--black);
+  
+}
+
+.nextBtn:is(:hover, :focus){
+  background-color: var(--onyx);
+    color: var(--white);
+}
+.prevBtn:is(:hover, :focus){
+  background-color: var(--cinnabar);
+  color: var(--white);
+}
+.pageCount{
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--black);;
 }

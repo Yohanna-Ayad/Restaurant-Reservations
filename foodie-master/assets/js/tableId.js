@@ -1,8 +1,3 @@
-window.onload = ()=>{
-    let cartQyt =JSON.parse(localStorage.getItem("cartQyt"));
-    let cartQtyElement = document.querySelector(".js-cart-quantity")
-    cartQtyElement.innerHTML = cartQyt;
-}
 function getQueryParams() {
     const params = {};
     const queryString = window.location.search.substring(1);
