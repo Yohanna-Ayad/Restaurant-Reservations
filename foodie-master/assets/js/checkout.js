@@ -39,13 +39,13 @@ function updateBill() {
   document.querySelectorAll(".total-items")[0].innerHTML =
     "Items (" + totalItems + ") ";
   document.querySelectorAll(".payment-summary-money")[0].innerHTML =
-    "$" + totalPrice;
+    "$" + totalPrice.toFixed(2);
   document.querySelectorAll(".payment-summary-money-beforeTax")[0].innerHTML =
-    "$" + (totalPrice + 50);
+    "$" + (totalPrice + 50).toFixed(2);
   document.querySelectorAll(".payment-summary-money-tax")[0].innerHTML =
-    "$" + tax;
+    "$" + tax.toFixed(2);
   document.querySelectorAll(".payment-summary-money-total")[0].innerHTML =
-    "$" + total;
+    "$" + total.toFixed(2);
 }
 
 
@@ -106,7 +106,7 @@ function confirmOrder() {
     tableId: localStorage.getItem("tableId"),
   };
 
-  fetch("http://192.168.1.5:3000/cart", {
+  fetch("http://192.168.1.7:3000/cart", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
